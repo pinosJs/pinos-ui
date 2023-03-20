@@ -1,0 +1,46 @@
+{
+  "name": "pinos",
+  "packageManager": "pnpm@7.1.0",
+  "author": "eric<https://github.com/GOGOGOSIR>",
+  "license": "MIT",
+  "scripts": {
+    "cz": "git-cz",
+    "release": "esno scripts/release.ts",
+    "ci-publish": "esno scripts/publish-ci.ts"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "@pinos/eslint-config": "^1.1.0",
+    "@types/fs-extra": "^11.0.1",
+    "@types/minimist": "^1.2.2",
+    "@types/node": "^18.11.18",
+    "@types/prompts": "^2.4.3",
+    "@types/semver": "^7.3.13",
+    "commitizen": "^4.2.5",
+    "conventional-changelog-cli": "^2.2.2",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.23.1",
+    "esno": "^0.16.3",
+    "execa": "^7.0.0",
+    "fast-glob": "^3.2.12",
+    "fs-extra": "^11.1.0",
+    "husky": "^7.0.0",
+    "lint-staged": "^13.0.3",
+    "minimist": "^1.2.8",
+    "picocolors": "^1.0.0",
+    "prompts": "^2.4.2",
+    "semver": "^7.3.8",
+    "typescript": "^4.8.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "packages/**/*.{js,cjs,mjs,jsx,vue,ts,tsx,cts,mts}": [
+      "eslint --fix --max-warnings 0"
+    ]
+  }
+}

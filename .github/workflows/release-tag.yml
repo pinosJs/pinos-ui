@@ -1,0 +1,39 @@
+name: Add GitHub Release Tag
+
+on:
+  push:
+    tags:
+      - '@pinos/*' # Push events to matching @pinos/*, i.e. @pinos/eslint-config@1.0.0
+
+# $GITHUB_REF_NAME - https://docs.github.com/en/actions/learn-github-actions/environment-variables#default-environment-variables
+
+jobs:
+  release:
+    if: github.repository == 'pinosJs/config'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Get pkgDirName for tag
+        id: tag
+        run: |
+          # `%@*` truncates @ and version number from the right side.
+          # https://stackoverflow.com/questions/9532654/expression-after-last-specific-character
+          pkgName=${GITHUB_REF_NAME%@*}
+          pkgDirName=${pkgName#*/}
+
+          echo ${pkgName}
+          echo ${pkgDirName}
+          echo "pkgName=$pkgName" >> $GITHUB_OUTPUT
+          echo "pkgDirName=$pkgDirName" >> $GITHUB_OUTPUT
+
+      - name: Create Release for Tag
+        id: release_tag
+        uses: yyx990803/release-tag@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          body: |
+            Please refer to [CHANGELOG.md](https://github.com/pinosJs/config/blob/${{ github.ref_name }}/packages/${{ steps.tag.outputs.pkgDirName }}/CHANGELOG.md) for details.

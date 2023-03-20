@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "cpylua.language-postcss",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "rohit-gohri.format-code-action",
+    "vue.volar"
+  ]
+}

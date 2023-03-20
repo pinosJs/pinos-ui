@@ -1,0 +1,38 @@
+name: Publish Package
+
+on:
+  push:
+    tags:
+      - '@pinos/*' # Push events to matching @pinos/*, i.e. @pinos/eslint-config@1.0.0
+
+jobs:
+  publish:
+    # prevents this action from running on forks
+    if: github.repository == 'pinosJs/config'
+    runs-on: ubuntu-latest
+    environment: Release
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7
+
+      - name: Set node version to 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          registry-url: https://registry.npmjs.org/
+          cache: pnpm
+
+      - name: Install deps
+        run: pnpm install
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: '1'
+
+      - name: Publish package
+        run: pnpm run ci-publish ${{ github.ref_name }} # refs/tag/tagName 的 tagName
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
