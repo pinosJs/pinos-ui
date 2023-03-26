@@ -20,13 +20,13 @@ interface VersionChoice {
   value: string
 }
 
-const pkgPrefix = '@pinos'
+const pkgPrefix = '@pinos-ui'
 
 export function getPkgDirName(pkgName: string) {
   return pkgName.split(pkgPrefix)[1]
 }
 
-export const packages = ['@pinos/eslint-config', '@pinos/prettier-config', '@pinos/stylelint-config']
+export const packages = ['@pinos-ui/plugins', 'pinos-ui']
 
 export const args = minimist(process.argv.slice(2))
 
