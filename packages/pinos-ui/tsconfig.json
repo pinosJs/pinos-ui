@@ -19,11 +19,20 @@
     "noUncheckedIndexedAccess": true,
     "outDir": "dist",
     "paths": {
+      "@config/*": [
+        "config/*"
+      ],
       "@styles/*": [
         "styles/*"
       ],
       "@utils/*": [
         "utils/*"
+      ],
+      "~/*": [
+        "./*"
+      ],
+      "~types/*": [
+        "types/*"
       ]
     },
     "removeComments": true,
@@ -37,11 +46,12 @@
   },
   "exclude": [],
   "include": [
-    "*.ts",
-    "packages/**/*.ts",
-    "packages/**/*.tsx",
-    "packages/**/*.vue",
+    "./*.ts",
+    "components/**/*.ts",
+    "components/**/*.tsx",
+    "components/**/*.vue",
     "scripts/*.ts",
+    "types/*.ts",
     "utils/*.ts"
   ]
 }

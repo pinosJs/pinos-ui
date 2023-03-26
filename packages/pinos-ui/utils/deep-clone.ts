@@ -1,4 +1,4 @@
-import { validateType, isTargetTag, forEach } from './utils'
+import { validateType, isTargetTag, forEach } from './common'
 
 const deepTag = ['Map', 'Set', 'Array', 'Object']
 const ctorTag = ['Boolean', 'Number', 'String', 'Date']

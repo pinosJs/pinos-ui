@@ -5,6 +5,8 @@
   "license": "MIT",
   "scripts": {
     "cz": "git-cz",
+    "clean": "del packages/**/dist",
+    "build": "pnpm clean && pnpm -r --filter='./packages/*' run build",
     "release": "esno scripts/release.ts",
     "ci-publish": "esno scripts/publish-ci.ts"
   },
@@ -20,6 +22,7 @@
     "commitizen": "^4.2.5",
     "conventional-changelog-cli": "^2.2.2",
     "cz-conventional-changelog": "^3.3.0",
+    "del-cli": "^5.0.0",
     "eslint": "^8.23.1",
     "esno": "^0.16.3",
     "execa": "^7.0.0",

@@ -1,0 +1,7 @@
+@use "./design" as *;
+
+.#{$namespace}-button {
+  background-color: red;
+  color: white;
+  font-size: 14px;
+}

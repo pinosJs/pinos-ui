@@ -1,5 +1,5 @@
+import { forEach, validateType } from './common'
 import { deepClone } from './deep-clone'
-import { forEach, validateType } from './utils'
 
 function merge<T extends Record<string, any>, U extends Record<string, any>>(source: T, target: U, isNewObj = true) {
   const sourceClone = isNewObj ? deepClone(source) : source

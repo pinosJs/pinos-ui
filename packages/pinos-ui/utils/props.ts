@@ -1,6 +1,8 @@
+// refer to：https://github.com/vexip-ui/vexip-ui/blob/main/common/config
+
 import { computed, unref, inject, provide, reactive } from 'vue'
+import { validateType } from './common'
 import { mergeObject } from './merge-object'
-import { validateType } from './utils'
 import type { PropsOptions } from '../props'
 import type { MaybeRef } from '../types/utils'
 import type { App, ComputedRef } from 'vue'
@@ -57,24 +59,19 @@ export function useProps<T extends Record<string, any>>(
     const defaultValue = defaultData[key] as any
     props[key] = computed(() => {
       const providedValue = configProps.value[key]
-      const sourcePropValue = sourceProps[key]
 
-      if (sourcePropValue === undefined || sourcePropValue === null) {
-        if (providedValue !== null && providedValue !== undefined) {
-          if (isMergeType(defaultValue) && isMergeType(providedValue))
-            return mergeObject(defaultValue, providedValue)
-          else
-            return providedValue
-        }
-
-        return defaultValue
+      if (providedValue !== null && providedValue !== undefined) {
+        if (isMergeType(defaultValue) && isMergeType(providedValue))
+          return mergeObject(defaultValue, providedValue)
+        else
+          return providedValue
       }
 
-      return sourcePropValue
+      return defaultValue
     })
   })
 
   return reactive(props) as {
-    [P in keyof T]-?: T[P]
+    [P in keyof T]-?: Exclude<T[P], undefined>
   }
 }

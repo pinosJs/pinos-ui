@@ -1,3 +1,6 @@
 module.exports = {
-  extends: ['@pinos']
+  extends: ['@pinos'],
+  rules: {
+    'vue/no-reserved-component-names': 'off'
+  }
 }

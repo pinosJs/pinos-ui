@@ -1,7 +1,37 @@
+// refer to：https://github.com/vexip-ui/vexip-ui/blob/main/common/config
+import { computed, provide, inject, unref } from 'vue'
+import type { App, ComputedRef, Ref } from 'vue'
+
+export const PROVIDED_NAMESPACE = '__pin-provided-namespace'
+export const globalNamespace = 'pin'
+
+export function configNamespace(sourceNamespace: string | Ref<string>, app?: App) {
+  if (app) {
+    const namespace = computed(() => {
+      const namespace = unref(sourceNamespace)
+
+      return namespace || globalNamespace
+    })
+
+    app.provide(PROVIDED_NAMESPACE, namespace)
+  } else {
+    const upstreamNamespace = inject<ComputedRef<string> | null>(PROVIDED_NAMESPACE, null)
+    const namespace = computed(() => {
+      return unref(sourceNamespace) || upstreamNamespace?.value || globalNamespace
+    })
+
+    provide(PROVIDED_NAMESPACE, namespace)
+  }
+}
+
+export function useNamespace() {
+  return inject(PROVIDED_NAMESPACE, globalNamespace)
+}
+
 /**
- *  创建 BEM 命名规范
+ *  Create a name helper for BEM.
  */
-export const useBemHelper = (block: string, namespace = 'pin') => {
+export const useNameHelper = (block: string, namespace = useNamespace()) => {
   /**
   * @returns `${namespace}-${block}`
   */
@@ -37,4 +67,4 @@ export const useBemHelper = (block: string, namespace = 'pin') => {
   }
 }
 
-export type BemHelper = ReturnType<typeof useBemHelper>
+export type NameHelper = ReturnType<typeof useNameHelper>
