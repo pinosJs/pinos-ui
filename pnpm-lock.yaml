@@ -85,6 +85,7 @@ importers:
       rollup: 2.50.0
       rollup-plugin-esbuild: ^5.0.0
       rollup-plugin-visualizer: ^5.8.3
+      sass: ^1.56.1
       stylelint: ^14.15.0
       tailwindcss: ^3.2.4
       terser: ^5.15.1
@@ -134,6 +135,7 @@ importers:
       rollup: 2.50.0
       rollup-plugin-esbuild: 5.0.0_hlkrpywdsqsnpxfphcappbjola
       rollup-plugin-visualizer: 5.9.0_rollup@2.50.0
+      sass: 1.59.3
       stylelint: 14.16.1
       tailwindcss: 3.2.7_postcss@8.4.21
       terser: 5.16.8
@@ -141,7 +143,7 @@ importers:
       unplugin-auto-import: 0.12.2_rollup@2.50.0
       unplugin-element-plus: 0.4.1_ell7rbhpeqynhvn6xkj2cmnhc4
       unplugin-vue-components: 0.22.12_rollup@2.50.0+vue@3.2.47
-      vite: 3.2.5_n5cgdtl6f7hxgcxgxe5n2jqqpm
+      vite: 3.2.5_hiwrwb7k575vfbu2uwifkodxpy
       vite-plugin-html: 3.2.0_vite@3.2.5
       vite-plugin-mock: 2.9.6_fsmoa5f2j52cw445mznu7my6ie
       vite-plugin-qiankun: 1.0.15_xnahv3oe7qqrkj2zrc3ephnzni
@@ -1849,7 +1851,7 @@ packages:
       regenerator-runtime: 0.13.11
       systemjs: 6.14.1
       terser: 5.16.8
-      vite: 3.2.5_n5cgdtl6f7hxgcxgxe5n2jqqpm
+      vite: 3.2.5_hiwrwb7k575vfbu2uwifkodxpy
     dev: true
 
   /@vitejs/plugin-vue-jsx/2.1.1_vite@3.2.5+vue@3.2.40:
@@ -1878,7 +1880,7 @@ packages:
       '@babel/core': 7.21.3
       '@babel/plugin-transform-typescript': 7.21.3_@babel+core@7.21.3
       '@vue/babel-plugin-jsx': 1.1.1_@babel+core@7.21.3
-      vite: 3.2.5_n5cgdtl6f7hxgcxgxe5n2jqqpm
+      vite: 3.2.5_hiwrwb7k575vfbu2uwifkodxpy
       vue: 3.2.47
     transitivePeerDependencies:
       - supports-color
@@ -1902,7 +1904,7 @@ packages:
       vite: ^3.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 3.2.5_n5cgdtl6f7hxgcxgxe5n2jqqpm
+      vite: 3.2.5_hiwrwb7k575vfbu2uwifkodxpy
       vue: 3.2.47
     dev: true
 
@@ -9772,7 +9774,7 @@ packages:
       chokidar: 3.5.3
       esbuild: 0.15.18
       rollup: 2.50.0
-      vite: 3.2.5_n5cgdtl6f7hxgcxgxe5n2jqqpm
+      vite: 3.2.5_hiwrwb7k575vfbu2uwifkodxpy
       webpack-sources: 3.2.3
       webpack-virtual-modules: 0.4.6
     dev: true
@@ -9977,7 +9979,7 @@ packages:
       html-minifier-terser: 6.1.0
       node-html-parser: 5.4.2
       pathe: 0.2.0
-      vite: 3.2.5_n5cgdtl6f7hxgcxgxe5n2jqqpm
+      vite: 3.2.5_hiwrwb7k575vfbu2uwifkodxpy
     dev: true
 
   /vite-plugin-mock/2.9.6_fsmoa5f2j52cw445mznu7my6ie:
@@ -9997,7 +9999,7 @@ packages:
       fast-glob: 3.2.12
       mockjs: 1.1.0
       path-to-regexp: 6.2.1
-      vite: 3.2.5_n5cgdtl6f7hxgcxgxe5n2jqqpm
+      vite: 3.2.5_hiwrwb7k575vfbu2uwifkodxpy
     transitivePeerDependencies:
       - rollup
       - supports-color
@@ -10011,7 +10013,7 @@ packages:
     dependencies:
       cheerio: 1.0.0-rc.12
       typescript: 4.7.4
-      vite: 3.2.5_n5cgdtl6f7hxgcxgxe5n2jqqpm
+      vite: 3.2.5_hiwrwb7k575vfbu2uwifkodxpy
     dev: true
 
   /vite-plugin-style-import/2.0.0_vite@3.2.5:
@@ -10026,7 +10028,7 @@ packages:
       fs-extra: 10.1.0
       magic-string: 0.25.9
       pathe: 0.2.0
-      vite: 3.2.5_n5cgdtl6f7hxgcxgxe5n2jqqpm
+      vite: 3.2.5_hiwrwb7k575vfbu2uwifkodxpy
     dev: true
 
   /vite-plugin-vconsole/1.3.1:
@@ -10115,7 +10117,7 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vite/3.2.5_n5cgdtl6f7hxgcxgxe5n2jqqpm:
+  /vite/3.2.5_hiwrwb7k575vfbu2uwifkodxpy:
     resolution: {integrity: sha512-4mVEpXpSOgrssFZAOmGIr85wPHKvaDAcXqxVxVRZhljkJOMZi1ibLibzjLHzJvcok8BMguLc7g1W6W/GqZbLdQ==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -10145,6 +10147,7 @@ packages:
       postcss: 8.4.21
       resolve: 1.22.1
       rollup: 2.79.1
+      sass: 1.59.3
       terser: 5.16.8
     optionalDependencies:
       fsevents: 2.3.2

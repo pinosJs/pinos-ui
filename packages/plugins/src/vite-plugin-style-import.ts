@@ -1,6 +1,5 @@
+import { noStylesComponents, prefix, toKebabCase } from './utils'
 import type { Lib } from 'vite-plugin-style-import'
-import { prefix } from '~/pinos-ui/config/constant'
-import { toKebabCase } from '~/pinos-ui/utils/common'
 
 export interface PinosUIStyleImportResolveOptions {
   /**
@@ -17,6 +16,9 @@ export function PinosUIStyleImportResolve(options: PinosUIStyleImportResolveOpti
     esModule: true,
     resolveStyle: (name) => {
       const { importStyle = 'css' } = options
+      if (noStylesComponents.has(name))
+        return ''
+
       if (!name.toLowerCase().startsWith(prefix.toLowerCase()))
         return ''
 

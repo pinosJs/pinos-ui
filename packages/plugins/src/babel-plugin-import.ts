@@ -1,5 +1,4 @@
-import { prefix } from '~/pinos-ui/config/constant'
-import { toKebabCase } from '~/pinos-ui/utils/common'
+import { noStylesComponents, prefix, toKebabCase } from './utils'
 
 export function PinosUIBabelImportResolve() {
   return {
@@ -8,6 +7,9 @@ export function PinosUIBabelImportResolve() {
     customName: () => 'pinos-ui',
     styleLibraryDirectory: 'dist/css',
     style: (name: string) => {
+      if (noStylesComponents.has(name))
+        return
+
       if (!name.toLowerCase().startsWith(prefix.toLowerCase()))
         return ''
 

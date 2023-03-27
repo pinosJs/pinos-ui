@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-// import { PinButton } from 'pinos-ui'
+// import { Button } from 'pinos-ui'
 </script>
 
 <script lang="ts">
@@ -10,6 +10,12 @@ export default {
 
 <template>
   <div class="full-page-container">
-    <pin-button />
+    <!-- 配置共有的属性，并重新命名样式的namespace -->
+    <pin-config-provider
+      :props="{Button: {text: '456'}}"
+      namespace="po"
+    >
+      <pin-button />
+    </pin-config-provider>
   </div>
 </template>

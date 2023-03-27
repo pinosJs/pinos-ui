@@ -1,6 +1,5 @@
+import { noStylesComponents, prefix, toKebabCase } from './utils'
 import type { ComponentInfo, ComponentResolver } from 'unplugin-vue-components/types'
-import { prefix } from '~/pinos-ui/config/constant'
-import { toKebabCase } from '~/pinos-ui/utils/common'
 
 export interface PinosUIResolverOptions {
   /**
@@ -13,6 +12,9 @@ export interface PinosUIResolverOptions {
 
 function getSideEffects(name: string, options: PinosUIResolverOptions) {
   const { importStyle } = options
+
+  if (noStylesComponents.has(name))
+    return
 
   if (!importStyle)
     return
