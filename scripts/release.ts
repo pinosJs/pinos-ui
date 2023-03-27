@@ -1,4 +1,4 @@
-// 参考 vite 源码
+// refer to https://github.com/vitejs/vite/blob/main/scripts/release.ts
 import colors from 'picocolors'
 import prompts from 'prompts'
 import semver from 'semver'
@@ -46,7 +46,7 @@ async function main(): Promise<void> {
   if (!semver.valid(targetVersion))
     throw new Error(`invalid target version: ${targetVersion}`)
 
-  const tag = `${pkgName}@${targetVersion}`
+  const tag = pkgName === 'pinos-ui' ? `v${targetVersion}` : `${pkgName}@${targetVersion}`
 
   if (targetVersion.includes('beta') && !args.tag)
     args.tag = 'beta'
@@ -101,7 +101,7 @@ async function main(): Promise<void> {
   } else {
     console.log(
       colors.green(
-        '\nPushed, publishing should starts shortly on CI.\nhttps://github.com/pinosJs/config/actions/workflows/publish.yml'
+        '\nPushed, publishing should starts shortly on CI.\nhttps://github.com/pinosJs/pinos-ui/actions/workflows/publish.yml'
       )
     )
   }

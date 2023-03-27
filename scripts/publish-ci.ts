@@ -14,9 +14,9 @@ async function main() {
   if (!tag)
     throw new Error('No tag specified')
 
-  const version = tag.replace(/@pinos\/.*@/g, '')
+  const version = tag.startsWith('v') ? tag.slice(1) : tag.replace(/@pinos-ui\/.*@/g, '')
   const versionReg = new RegExp(`@${version}`, 'g')
-  const pkgName = tag.replace(versionReg, '')
+  const pkgName = tag.startsWith('v') ? 'pinos-ui' : tag.replace(versionReg, '')
 
   const { currentVersion, pkgDir } = getPackageInfo(pkgName)
   if (currentVersion !== version) {

@@ -3,13 +3,14 @@ name: Add GitHub Release Tag
 on:
   push:
     tags:
-      - '@pinos/*' # Push events to matching @pinos/*, i.e. @pinos/eslint-config@1.0.0
+      - "v*"
+      - "@pinos-ui/*" # Push events to matching @pinos-ui/*, i.e. @pinos-ui/plugins@1.0.0
 
 # $GITHUB_REF_NAME - https://docs.github.com/en/actions/learn-github-actions/environment-variables#default-environment-variables
 
 jobs:
   release:
-    if: github.repository == 'pinosJs/config'
+    if: github.repository == 'pinosJs/pinos-ui'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -18,10 +19,17 @@ jobs:
       - name: Get pkgDirName for tag
         id: tag
         run: |
-          # `%@*` truncates @ and version number from the right side.
-          # https://stackoverflow.com/questions/9532654/expression-after-last-specific-character
-          pkgName=${GITHUB_REF_NAME%@*}
-          pkgDirName=${pkgName#*/}
+          # matching v1.0.0 / v1.0.0-beta.1 etc
+          if [[ $GITHUB_REF_NAME =~ ^v.+ ]]; then
+            pkgName="pinos-ui"
+            pkgDirName="pinos-ui"
+          else
+            # `%@*` truncates @ and version number from the right side.
+            # https://stackoverflow.com/questions/9532654/expression-after-last-specific-character
+            pkgName=${GITHUB_REF_NAME%@*}
+            pkgDirName=${pkgName#*/}
+
+          fi
 
           echo ${pkgName}
           echo ${pkgDirName}
@@ -36,4 +44,4 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           body: |
-            Please refer to [CHANGELOG.md](https://github.com/pinosJs/config/blob/${{ github.ref_name }}/packages/${{ steps.tag.outputs.pkgDirName }}/CHANGELOG.md) for details.
+            Please refer to [CHANGELOG.md](https://github.com/pinosJs/pinos-ui/blob/${{ github.ref_name }}/packages/${{ steps.tag.outputs.pkgDirName }}/CHANGELOG.md) for details.

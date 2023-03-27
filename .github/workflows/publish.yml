@@ -3,12 +3,13 @@ name: Publish Package
 on:
   push:
     tags:
-      - '@pinos/*' # Push events to matching @pinos/*, i.e. @pinos/eslint-config@1.0.0
+      - "v*"
+      - "@pinos-ui/*" # Push events to matching @pinos-ui/*, i.e. @pinos-ui/plugins@1.0.0
 
 jobs:
   publish:
     # prevents this action from running on forks
-    if: github.repository == 'pinosJs/config'
+    if: github.repository == 'pinosJs/pinos-ui'
     runs-on: ubuntu-latest
     environment: Release
     steps:
@@ -30,7 +31,7 @@ jobs:
       - name: Install deps
         run: pnpm install
         env:
-          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: '1'
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: "1"
 
       - name: Publish package
         run: pnpm run ci-publish ${{ github.ref_name }} # refs/tag/tagName 的 tagName

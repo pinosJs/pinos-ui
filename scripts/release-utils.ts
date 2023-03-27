@@ -1,4 +1,4 @@
-// 参考 vite 源码
+// refer to https://github.com/vitejs/vite/blob/main/scripts/releaseUtils.ts
 import { existsSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
 import { execa } from 'execa'
@@ -20,10 +20,10 @@ interface VersionChoice {
   value: string
 }
 
-const pkgPrefix = '@pinos-ui'
+const pkgPrefix = '@pinos-ui/'
 
 export function getPkgDirName(pkgName: string) {
-  return pkgName.split(pkgPrefix)[1]
+  return pkgName === 'pinos-ui' ? pkgName : pkgName.split(pkgPrefix)[1]
 }
 
 export const packages = ['@pinos-ui/plugins', 'pinos-ui']
@@ -62,7 +62,7 @@ export async function getLatestTag(pkgName: string) {
   const tags = (await run('git', ['tag'], { stdio: 'pipe' })).stdout
     .split(/\n/)
     .filter(Boolean)
-  const prefix = `${pkgName}@`
+  const prefix = pkgName === 'pinos-ui' ? 'v' : `${pkgName}@`
   // 获取最后一个tag
   return tags
     .filter(tag => tag.startsWith(prefix))
