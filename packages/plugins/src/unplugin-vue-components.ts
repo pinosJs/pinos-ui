@@ -33,11 +33,10 @@ function getSideEffects(name: string, options: PinosUIResolverOptions) {
 }
 
 function resolveComponent(name: string, options: PinosUIResolverOptions): ComponentInfo | undefined {
-  if (!name.startsWith(prefix))
+  if (!name.toLowerCase().startsWith(prefix.toLowerCase()))
     return
 
   name = name.slice(prefix.length)
-
   return {
     name,
     from: 'pinos-ui',

@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    @apply h-full;
+  }
+
+  #app {
+    @apply flex h-full flex-col overflow-x-hidden;
+  }
+
+  /* fix: html2canvas 如果全局设置img为block会导致文字上下不居中的问题 */
+  img {
+    @apply inline-block;
+  }
+
+  /* 处理用户文本的选中 */
+  div,
+  label,
+  button,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  ul,
+  ol,
+  li,
+  p,
+  span,
+  a,
+  b,
+  code,
+  kbd,
+  samp,
+  pre,
+  sub,
+  sup,
+  table,
+  blockquote,
+  dl,
+  dd,
+  img,
+  strong {
+    @apply select-none;
+  }
+}
+
+@layer utilities {
+  /* 全局的样式类 */
+  .full-page-container {
+    @apply flex h-full w-full flex-col;
+  }
+
+  .custom-left-arrow-icon {
+    @apply text-22 text-[#0d171a];
+  }
+
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  .hide-scroll-bar {
+    &::-webkit-scrollbar {
+      @apply w-0 hidden;
+    }
+  }
+}

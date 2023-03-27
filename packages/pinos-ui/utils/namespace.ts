@@ -32,6 +32,7 @@ export function useNamespace() {
  *  Create a name helper for BEM.
  */
 export const useNameHelper = (block: string, namespace = useNamespace()) => {
+  namespace = unref(namespace)
   /**
   * @returns `${namespace}-${block}`
   */

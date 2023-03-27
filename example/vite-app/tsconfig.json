@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "types": [
+      "pinos-ui/types",
+      "vite/client"
+    ],
+    "useUnknownInCatchVariables": false
+  },
+  "exclude": [
+    "**/*.js",
+    "node_modules"
+  ],
+  "extends": "@vue/tsconfig/tsconfig.web.json",
+  "include": [
+    "scripts/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "vite.config.ts"
+  ]
+}

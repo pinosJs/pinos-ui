@@ -1,6 +1,7 @@
 import { resolve, join } from 'node:path'
 import { prefix } from '@config/constant'
 import { toCapitalCase } from '@utils/common'
+import { ESLint } from 'eslint'
 import fg from 'fast-glob'
 import fs from 'fs-extra'
 
@@ -10,6 +11,7 @@ const styleDir = resolve(__dirname, '../styles')
 const ignorePropsDirs = new Set(['config-provider'])
 
 export async function updateImport() {
+  const eslint = new ESLint({ fix: true })
   const componentDirs = await fg('*', {
     onlyDirectories: true,
     cwd: componentDir,
@@ -23,7 +25,8 @@ export async function updateImport() {
 
   const componentInfo = componentDirs.map(i => ({
     dirName: i,
-    componentName: toCapitalCase(`${prefix}-${i}`),
+    prefixComponentName: toCapitalCase(`${prefix}-${i}`),
+    componentName: toCapitalCase(i),
     capitalCaseName: toCapitalCase(i),
     configPropsName: `${toCapitalCase(i)}ConfigProps`
   }))
@@ -64,4 +67,20 @@ export async function updateImport() {
     return index === componentInfo.length - 1 ? `  ${data.componentName}` : `  ${data.componentName},`
   }).join('\n')}\n]`
   await fs.writeFile(join(dir, 'components.ts'), `${importComponentsStr}\n${exportComponentsStr}\n`)
+
+  // types.d.ts
+  const types = `
+    declare module 'vue' {
+      export interface GlobalComponents {
+        ${componentInfo.map(data => `${data.prefixComponentName}: typeof import('pinos-ui')['${data.componentName}']`)
+      .join(',\n')
+    }
+      }
+    }
+
+    export {}
+  `
+  const typesPath = join(dir, 'types.d.ts')
+  await fs.writeFile(typesPath, types)
+  await ESLint.outputFixes(await eslint.lintFiles(typesPath))
 }

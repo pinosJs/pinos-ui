@@ -17,7 +17,7 @@ export function PinosUIStyleImportResolve(options: PinosUIStyleImportResolveOpti
     esModule: true,
     resolveStyle: (name) => {
       const { importStyle = 'css' } = options
-      if (!name.startsWith(prefix))
+      if (!name.toLowerCase().startsWith(prefix.toLowerCase()))
         return ''
 
       name = name.slice(prefix.length)

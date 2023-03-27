@@ -18,6 +18,6 @@ export function useInstall(components: any[]) {
     configNamespace(namespace, app)
 
     for (const component of components)
-      app.component(toCapitalCase(`$${prefix}${component.name}`), component)
+      app.component(toCapitalCase(`${prefix}-${component.name}`), component)
   }
 }

@@ -8,7 +8,7 @@ export function PinosUIBabelImportResolve() {
     customName: () => 'pinos-ui',
     styleLibraryDirectory: 'dist/css',
     style: (name: string) => {
-      if (!name.startsWith(prefix))
+      if (!name.toLowerCase().startsWith(prefix.toLowerCase()))
         return ''
 
       name = name.slice(prefix.length)
