@@ -10,7 +10,7 @@ export interface PinosUIStyleImportResolveOptions {
   importStyle?: boolean | 'css' | 'sass'
 }
 
-export function PinosUIStyleImportResolve(options: PinosUIStyleImportResolveOptions): Lib {
+export function PinosUIStyleImportResolve(options: PinosUIStyleImportResolveOptions = {}): Lib {
   return {
     libraryName: 'pinos-ui',
     esModule: true,

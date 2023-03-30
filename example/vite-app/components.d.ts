@@ -7,9 +7,6 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    PinButton: typeof import('pinos-ui')['Button']
-    PinConfigProvider: typeof import('pinos-ui')['ConfigProvider']
-    RouterLink: typeof import('vue-router')['RouterLink']
-    RouterView: typeof import('vue-router')['RouterView']
+
   }
 }

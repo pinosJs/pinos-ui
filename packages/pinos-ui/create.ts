@@ -11,13 +11,15 @@ export interface InstallOptions {
 }
 
 export function useInstall(components: any[]) {
-  return function install(app: App, opts?: InstallOptions) {
-    const { props = {}, namespace = defaultNamespace } = opts || {}
+  return {
+    install(app: App, opts?: InstallOptions) {
+      const { props = {}, namespace = defaultNamespace } = opts || {}
 
-    configProps(props, app)
-    configNamespace(namespace, app)
+      configProps(props, app)
+      configNamespace(namespace, app)
 
-    for (const component of components)
-      app.component(toCapitalCase(`${prefix}-${component.name}`), component)
+      for (const component of components)
+        app.component(toCapitalCase(`${prefix}-${component.name}`), component)
+    }
   }
 }
