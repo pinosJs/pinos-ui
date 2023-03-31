@@ -78,7 +78,9 @@ async function main(): Promise<void> {
     '--commit-path',
     '.'
   ]
-  changelogArgs.push('--lerna-package', pkgName)
+  if (pkgName !== 'pinos-ui')
+    changelogArgs.push('--lerna-package', pkgName)
+
   await run('npx', changelogArgs, { cwd: pkgDir })
 
   // 看是否有记录为提交，如果有，提交并打上tag
