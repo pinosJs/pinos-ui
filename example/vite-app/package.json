@@ -7,7 +7,6 @@
   },
   "scripts": {
     "dev": "vite",
-    "preinstall": "npx only-allow pnpm",
     "build:test": "vue-tsc --noEmit && vite build --mode test",
     "build:prod": "vue-tsc --noEmit && vite build --mode production",
     "preview": "vite preview",
@@ -15,14 +14,13 @@
   },
   "dependencies": {
     "element-plus": "^2.2.28",
-    "pinos-ui": "workspace:^",
     "vue": "^3.2.41",
     "vue-router": "^4.1.5"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.3.0",
     "@commitlint/config-conventional": "^17.3.0",
-    "@pinos-ui/plugins": "workspace:^",
+    "@pinos-ui/plugins": "^0.1.0-alpha.1",
     "@types/md5": "^2.3.2",
     "@types/mockjs": "^1.0.7",
     "@types/node": "^16.11.68",
