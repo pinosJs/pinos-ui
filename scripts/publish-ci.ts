@@ -18,7 +18,7 @@ async function main() {
   const versionReg = new RegExp(`@${version}`, 'g')
   const pkgName = tag.startsWith('v') ? 'pinos-ui' : tag.replace(versionReg, '')
 
-  const { currentVersion, pkgDir } = getPackageInfo(pkgName)
+  const { currentVersion, pkgDir, pkgDirName } = getPackageInfo(pkgName)
   if (currentVersion !== version) {
     throw new Error(
       `Package version from tag "${version}" mismatches with current version "${currentVersion}"`
@@ -30,7 +30,7 @@ async function main() {
   step(`Building ${pkgName} ...`)
   const buildArgs = [
     '--filter',
-    `./packages/${pkgDir}`,
+    `./packages/${pkgDirName}`,
     'run',
     'build'
   ]

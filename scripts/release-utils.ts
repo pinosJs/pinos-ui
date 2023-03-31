@@ -107,10 +107,12 @@ export function getPackageInfo(pkgName: string): {
   pkg: Pkg
   pkgName: string
   pkgDir: string
+  pkgDirName: string
   pkgPath: string
   currentVersion: string
 } {
-  const pkgDir = path.resolve(__dirname, `../packages/${getPkgDirName(pkgName)}`)
+  const pkgDirName = getPkgDirName(pkgName)
+  const pkgDir = path.resolve(__dirname, `../packages/${pkgDirName}`)
 
   if (!existsSync(pkgDir))
     throw new Error(`Package ${pkgName} not found`)
@@ -126,6 +128,7 @@ export function getPackageInfo(pkgName: string): {
   return {
     pkg,
     pkgName,
+    pkgDirName,
     pkgDir,
     pkgPath,
     currentVersion
