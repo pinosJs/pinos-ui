@@ -1,4 +1,4 @@
-import { noStylesComponents, prefix, toKebabCase } from './utils'
+import { noStylesComponents, prefix, toKebabCase, toCapitalCase } from './utils'
 
 export function PinosUIBabelImportResolve() {
   return {
@@ -7,13 +7,11 @@ export function PinosUIBabelImportResolve() {
     customName: () => 'pinos-ui',
     styleLibraryDirectory: 'dist/css',
     style: (name: string) => {
+      name = toCapitalCase(name)
+      name = name.slice(prefix.length)
+
       if (noStylesComponents.has(name))
         return
-
-      if (!name.toLowerCase().startsWith(prefix.toLowerCase()))
-        return ''
-
-      name = name.slice(prefix.length)
 
       name = toKebabCase(name)
       return `pinos-ui/dist/css/${name}.css`
