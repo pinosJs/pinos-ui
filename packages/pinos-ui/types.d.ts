@@ -1,7 +1,7 @@
 declare module 'vue' {
   export interface GlobalComponents {
-    PinButton: typeof import('pinos-ui')['Button']
-    PinConfigProvider: typeof import('pinos-ui')['ConfigProvider']
+    PinButton: typeof import('pinos-ui')['PinButton']
+    PinConfigProvider: typeof import('pinos-ui')['PinConfigProvider']
   }
 }
 

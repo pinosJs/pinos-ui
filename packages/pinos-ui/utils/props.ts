@@ -46,7 +46,7 @@ export function useProps<T extends Record<string, any>>(
     null
   )
 
-  const configProps = computed<Partial<T>>(() => {
+  const defaultConfigProps = computed<Partial<T>>(() => {
     return providedProps?.value?.[name] ?? {}
   })
 
@@ -58,7 +58,7 @@ export function useProps<T extends Record<string, any>>(
   keys.forEach((key) => {
     const defaultValue = defaultData[key] as any
     props[key] = computed(() => {
-      const providedValue = configProps.value[key]
+      const providedValue = defaultConfigProps.value[key]
 
       if (providedValue !== null && providedValue !== undefined) {
         if (isMergeType(defaultValue) && isMergeType(providedValue))

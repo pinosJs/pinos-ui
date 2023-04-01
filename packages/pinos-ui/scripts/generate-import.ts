@@ -61,10 +61,10 @@ export async function updateImport() {
 
   // 生成 components.ts
   const importComponentsStr = componentInfo.map((data) => {
-    return `import { ${data.componentName} } from './components/${data.dirName}'`
+    return `import { ${data.prefixComponentName} } from './components/${data.dirName}'`
   }).join('\n')
   const exportComponentsStr = `\nexport const components = [\n${componentInfo.map((data, index) => {
-    return index === componentInfo.length - 1 ? `  ${data.componentName}` : `  ${data.componentName},`
+    return index === componentInfo.length - 1 ? `  ${data.prefixComponentName}` : `  ${data.prefixComponentName},`
   }).join('\n')}\n]`
   await fs.writeFile(join(dir, 'components.ts'), `${importComponentsStr}\n${exportComponentsStr}\n`)
 
@@ -72,7 +72,7 @@ export async function updateImport() {
   const types = `
     declare module 'vue' {
       export interface GlobalComponents {
-        ${componentInfo.map(data => `${data.prefixComponentName}: typeof import('pinos-ui')['${data.componentName}']`)
+        ${componentInfo.map(data => `${data.prefixComponentName}: typeof import('pinos-ui')['${data.prefixComponentName}']`)
       .join(',\n')
     }
       }

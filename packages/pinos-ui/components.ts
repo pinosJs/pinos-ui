@@ -1,7 +1,7 @@
-import { Button } from './components/button'
-import { ConfigProvider } from './components/config-provider'
+import { PinButton } from './components/button'
+import { PinConfigProvider } from './components/config-provider'
 
 export const components = [
-  Button,
-  ConfigProvider
+  PinButton,
+  PinConfigProvider
 ]

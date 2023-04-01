@@ -9,10 +9,10 @@ export default defineComponent({
     const props = useProps('Button', _props, {
       text: '123'
     })
-    const bh = useNameHelper('button')
+    const nh = useNameHelper('button')
     const className = computed(() => {
       return {
-        [bh.b()]: true
+        [nh.b()]: true
       }
     })
 

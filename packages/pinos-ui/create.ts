@@ -12,8 +12,8 @@ export interface InstallOptions {
 
 export function useInstall(components: any[]) {
   return {
-    install(app: App, opts?: InstallOptions) {
-      const { props = {}, namespace = defaultNamespace } = opts || {}
+    install(app: App, opts: InstallOptions = {}) {
+      const { props = {}, namespace = defaultNamespace } = opts
 
       configProps(props, app)
       configNamespace(namespace, app)
