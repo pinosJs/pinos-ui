@@ -1,3 +1,12 @@
+# [0.1.0-alpha.5](https://github.com/pinosJs/pinos-ui/compare/@pinos-ui/plugins@0.1.0-alpha.4...@pinos-ui/plugins@0.1.0-alpha.5) (2023-04-01)
+
+
+### Bug Fixes
+
+* **@pinos-ui/plugins:** added prefix judgment to vite-plugin-style-import ([7763eab](https://github.com/pinosJs/pinos-ui/commit/7763eab91ad574d613949a5cfeb2981251d12109))
+
+
+
 # [0.1.0-alpha.4](https://github.com/pinosJs/pinos-ui/compare/@pinos-ui/plugins@0.1.0-alpha.3...@pinos-ui/plugins@0.1.0-alpha.4) (2023-04-01)
 
 

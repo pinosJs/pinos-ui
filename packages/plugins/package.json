@@ -1,6 +1,6 @@
 {
   "name": "@pinos-ui/plugins",
-  "version": "0.1.0-alpha.4",
+  "version": "0.1.0-alpha.5",
   "author": "eric<https://github.com/GOGOGOSIR>",
   "exports": {
     ".": {
