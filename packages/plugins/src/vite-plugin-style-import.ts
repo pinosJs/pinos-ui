@@ -17,6 +17,11 @@ export function PinosUIStyleImportResolve(options: PinosUIStyleImportResolveOpti
     resolveStyle: (name) => {
       const { importStyle = 'css' } = options
       name = toCapitalCase(name)
+
+      if (!name.toLowerCase().startsWith(prefix.toLowerCase())) {
+        return ''
+      }
+
       name = name.slice(prefix.length)
 
       if (noStylesComponents.has(name))
