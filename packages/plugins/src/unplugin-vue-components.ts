@@ -13,6 +13,8 @@ export interface PinosUIResolverOptions {
 function getSideEffects(name: string, options: PinosUIResolverOptions) {
   const { importStyle } = options
 
+  name = name.slice(prefix.length)
+
   if (noStylesComponents.has(name))
     return
 
@@ -35,10 +37,6 @@ function getSideEffects(name: string, options: PinosUIResolverOptions) {
 }
 
 function resolveComponent(name: string, options: PinosUIResolverOptions): ComponentInfo | undefined {
-  if (!name.toLowerCase().startsWith(prefix.toLowerCase()))
-    return
-
-  name = name.slice(prefix.length)
   return {
     name,
     from: 'pinos-ui',
