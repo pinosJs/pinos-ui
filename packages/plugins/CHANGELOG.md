@@ -1,3 +1,12 @@
+# [0.1.0-alpha.3](https://github.com/pinosJs/pinos-ui/compare/@pinos-ui/plugins@0.1.0-alpha.2...@pinos-ui/plugins@0.1.0-alpha.3) (2023-04-01)
+
+
+### Bug Fixes
+
+* **@pinos-ui/plugins:** unplugin-vue-components: Only deal with pinos-ui related components ([3912caa](https://github.com/pinosJs/pinos-ui/commit/3912caa880cad0db6aa75d19386b9a0aa67a5a00))
+
+
+
 # [0.1.0-alpha.2](https://github.com/pinosJs/pinos-ui/compare/@pinos-ui/plugins@0.1.0-alpha.1...@pinos-ui/plugins@0.1.0-alpha.2) (2023-04-01)
 
 
