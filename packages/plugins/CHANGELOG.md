@@ -1,3 +1,12 @@
+# [0.1.0-alpha.4](https://github.com/pinosJs/pinos-ui/compare/@pinos-ui/plugins@0.1.0-alpha.3...@pinos-ui/plugins@0.1.0-alpha.4) (2023-04-01)
+
+
+### Features
+
+* **@pinos-ui/plugins:** delete babel-plugin-import.ts ([e291e4c](https://github.com/pinosJs/pinos-ui/commit/e291e4c5bbabe466651d7bcfb15991f966f07151))
+
+
+
 # [0.1.0-alpha.3](https://github.com/pinosJs/pinos-ui/compare/@pinos-ui/plugins@0.1.0-alpha.2...@pinos-ui/plugins@0.1.0-alpha.3) (2023-04-01)
 
 
