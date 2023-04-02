@@ -8,6 +8,12 @@ export interface PinosUIResolverOptions {
    * @default 'css'
    */
   importStyle?: boolean | 'css' | 'sass'
+  /**
+  * auto import for directives
+  *
+  * @default true
+  */
+  directives?: boolean
 }
 
 function getSideEffects(name: string, options: PinosUIResolverOptions) {
@@ -37,14 +43,35 @@ function getSideEffects(name: string, options: PinosUIResolverOptions) {
 }
 
 function resolveComponent(name: string, options: PinosUIResolverOptions): ComponentInfo | undefined {
-  if (!name.toLowerCase().startsWith(prefix.toLowerCase())) {
+  if (!name.toLowerCase().startsWith(prefix.toLowerCase()))
     return
-  }
 
   return {
     name,
     from: 'pinos-ui',
     sideEffects: getSideEffects(name, options)
+  }
+}
+
+function resolveDirective(name: string, options: PinosUIResolverOptions): ComponentInfo | undefined {
+  const { directives = true } = options
+  if (!directives)
+    return
+
+  const directivesMap: Record<string, { importName: string; styleName: string }> = {
+    VEllipsis: { importName: 'VEllipsis', styleName: '' }
+  }
+
+  const directive = directivesMap[name]
+  if (!directive)
+    return
+
+  return {
+    name: directive.importName,
+    from: 'pinos-ui',
+    sideEffects: directive.styleName
+      ? getSideEffects(directive.styleName, options)
+      : undefined
   }
 }
 
@@ -56,6 +83,12 @@ export function PinosUIResolver(options: PinosUIResolverOptions = {}): Component
       type: 'component',
       resolve: (name) => {
         return resolveComponent(name, options)
+      }
+    },
+    {
+      type: 'directive',
+      resolve: (name) => {
+        return resolveDirective(name, options)
       }
     }
   ]
