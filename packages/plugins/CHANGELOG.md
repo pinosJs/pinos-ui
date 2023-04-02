@@ -1,3 +1,12 @@
+# [0.1.0-alpha.8](https://github.com/pinosJs/pinos-ui/compare/@pinos-ui/plugins@0.1.0-alpha.7...@pinos-ui/plugins@0.1.0-alpha.8) (2023-04-02)
+
+
+### Features
+
+* **@pinos-ui/plugins:** unplugin-vue-components add directive config ([d66fa8e](https://github.com/pinosJs/pinos-ui/commit/d66fa8e09219e68ad1bf3ad2e71097df0a315f24))
+
+
+
 # [0.1.0-alpha.7](https://github.com/pinosJs/pinos-ui/compare/@pinos-ui/plugins@0.1.0-alpha.6...@pinos-ui/plugins@0.1.0-alpha.7) (2023-04-02)
 
 
