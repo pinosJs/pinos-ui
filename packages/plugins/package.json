@@ -6,12 +6,12 @@
   "homepage": "",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pinosJs/pinos-ui",
+    "url": "git+https://github.com/pinosJs/pinos-ui.git",
     "directory": "packages/plugins"
   },
   "exports": {
     ".": {
-      "types": "./dist/types/plugins/index.d.ts",
+      "types": "./dist/types/index.d.ts",
       "require": "./dist/index.cjs",
       "import": "./dist/index.mjs"
     },
@@ -19,7 +19,7 @@
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
-  "types": "./dist/types/plugins/index.d.ts",
+  "types": "./dist/types/index.d.ts",
   "files": [
     "dist",
     "package.json"

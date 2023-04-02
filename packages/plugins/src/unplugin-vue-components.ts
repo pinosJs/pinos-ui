@@ -59,7 +59,7 @@ function resolveDirective(name: string, options: PinosUIResolverOptions): Compon
     return
 
   const directivesMap: Record<string, { importName: string; styleName: string }> = {
-    VEllipsis: { importName: 'VEllipsis', styleName: '' }
+    vEllipsis: { importName: 'vEllipsis', styleName: '' }
   }
 
   const directive = directivesMap[name]
