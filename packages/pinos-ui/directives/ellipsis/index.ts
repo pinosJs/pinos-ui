@@ -74,7 +74,7 @@ interface ExtendsHTMLElement extends HTMLElement {
   instance: EllipsisInstance | null
 }
 
-export const VEllipsis: ObjectDirective<ExtendsHTMLElement, any> = {
+export const vEllipsis: ObjectDirective<ExtendsHTMLElement, any> = {
   mounted: (el: ExtendsHTMLElement, binding: { value: Binding }) => {
     nextTick(() => {
       el.instance = new Ellipsis(el, binding.value)

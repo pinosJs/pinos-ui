@@ -50,6 +50,7 @@
     "components/**/*.ts",
     "components/**/*.tsx",
     "components/**/*.vue",
+    "directives/**/*.ts",
     "scripts/*.ts",
     "types/*.ts",
     "utils/*.ts"
