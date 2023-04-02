@@ -26,7 +26,7 @@ export function getPkgDirName(pkgName: string) {
   return pkgName === 'pinos-ui' ? pkgName : pkgName.split(pkgPrefix)[1]
 }
 
-export const packages = ['@pinos-ui/plugins', 'pinos-ui']
+export const packages = ['@pinos-ui/plugins', '@pinos-ui/utils', 'pinos-ui']
 
 export const args = minimist(process.argv.slice(2))
 
