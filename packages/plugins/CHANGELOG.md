@@ -1,3 +1,12 @@
+# [0.1.0-alpha.9](https://github.com/pinosJs/pinos-ui/compare/@pinos-ui/plugins@0.1.0-alpha.8...@pinos-ui/plugins@0.1.0-alpha.9) (2023-04-02)
+
+
+### Bug Fixes
+
+* **@pinos-ui/plugins:** change directive map key ([221e881](https://github.com/pinosJs/pinos-ui/commit/221e881b4fff92aa0d531d2fdd84a4dd9671e136))
+
+
+
 # [0.1.0-alpha.8](https://github.com/pinosJs/pinos-ui/compare/@pinos-ui/plugins@0.1.0-alpha.7...@pinos-ui/plugins@0.1.0-alpha.8) (2023-04-02)
 
 
