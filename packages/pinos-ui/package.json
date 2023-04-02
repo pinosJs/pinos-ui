@@ -1,9 +1,14 @@
 {
   "name": "pinos-ui",
-  "version": "0.1.0-alpha.3",
+  "version": "0.1.0-alpha.2",
   "description": "A Vue 3 UI library",
   "author": "eric<https://github.com/GOGOGOSIR>",
   "license": "MIT",
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pinosJs/pinos-ui.git"
+  },
   "exports": {
     ".": {
       "types": "./dist/types/index.d.ts",
