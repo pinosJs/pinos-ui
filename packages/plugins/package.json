@@ -2,6 +2,13 @@
   "name": "@pinos-ui/plugins",
   "version": "0.1.0-alpha.6",
   "author": "eric<https://github.com/GOGOGOSIR>",
+  "license": "MIT",
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pinosJs/pinos-ui",
+    "directory": "packages/plugins"
+  },
   "exports": {
     ".": {
       "types": "./dist/types/plugins/index.d.ts",

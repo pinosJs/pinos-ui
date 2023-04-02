@@ -231,11 +231,18 @@ export async function publishPackage(
   pkdDir: string,
   tag?: string
 ): Promise<void> {
-  const publicArgs = ['publish', '--access', 'public']
+  const publicArgs = [
+    'publish',
+    '--access',
+    'public',
+    '--registry',
+    'https://registry.npmjs.org/',
+    '--no-git-checks'
+  ]
   if (tag)
     publicArgs.push('--tag', tag)
 
-  await runIfNotDry('npm', publicArgs, {
+  await runIfNotDry('pnpm', publicArgs, {
     cwd: pkdDir
   })
 }

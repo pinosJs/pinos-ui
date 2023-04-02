@@ -8,6 +8,62 @@ import {
   step
 } from './release-utils'
 
+function getBuildStep() {
+  const buildStep = new Map<string, { buildPkgName: string; buildArgs: string[] }[]>()
+  buildStep.set('@pinos-ui/utils', [
+    {
+      buildPkgName: '@pinos-ui/utils',
+      buildArgs: [
+        '--filter',
+        './packages/utils',
+        'run',
+        'build'
+      ]
+    }
+  ])
+  buildStep.set('@pinos-ui/plugins', [
+    {
+      buildPkgName: '@pinos-ui/utils',
+      buildArgs: [
+        '--filter',
+        './packages/utils',
+        'run',
+        'build'
+      ]
+    },
+    {
+      buildPkgName: '@pinos-ui/plugins',
+      buildArgs: [
+        '--filter',
+        './packages/plugins',
+        'run',
+        'build'
+      ]
+    }
+  ])
+  buildStep.set('pinos-ui', [
+    {
+      buildPkgName: '@pinos-ui/utils',
+      buildArgs: [
+        '--filter',
+        './packages/utils',
+        'run',
+        'build'
+      ]
+    },
+    {
+      buildPkgName: 'pinos-ui',
+      buildArgs: [
+        '--filter',
+        './packages/pinos-ui',
+        'run',
+        'build'
+      ]
+    }
+  ])
+  return buildStep
+}
+
 async function main() {
   const tag = args._[0]
 
@@ -18,7 +74,7 @@ async function main() {
   const versionReg = new RegExp(`@${version}`, 'g')
   const pkgName = tag.startsWith('v') ? 'pinos-ui' : tag.replace(versionReg, '')
 
-  const { currentVersion, pkgDir, pkgDirName } = getPackageInfo(pkgName)
+  const { currentVersion, pkgDir } = getPackageInfo(pkgName)
   if (currentVersion !== version) {
     throw new Error(
       `Package version from tag "${version}" mismatches with current version "${currentVersion}"`
@@ -26,15 +82,16 @@ async function main() {
   }
 
   const activeVersion = await getActiveVersion(pkgName)
+  const buildStep = getBuildStep()
 
-  step(`Building ${pkgName} ...`)
-  const buildArgs = [
-    '--filter',
-    `./packages/${pkgDirName}`,
-    'run',
-    'build'
-  ]
-  await run('pnpm', buildArgs)
+  const steps = buildStep.get(pkgName)
+  if (steps && steps.length) {
+    for (const s of steps) {
+      const { buildPkgName, buildArgs } = s
+      step(`Building ${buildPkgName} ...`)
+      await run('pnpm', buildArgs)
+    }
+  }
 
   step('Publishing package...')
   const releaseTag = version.includes('beta')
