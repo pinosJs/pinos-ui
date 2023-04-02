@@ -1,3 +1,12 @@
+# [0.1.0-alpha.7](https://github.com/pinosJs/pinos-ui/compare/@pinos-ui/plugins@0.1.0-alpha.6...@pinos-ui/plugins@0.1.0-alpha.7) (2023-04-02)
+
+
+### Bug Fixes
+
+* **@pinos-ui/plugins:** workspace error ([77fd4c5](https://github.com/pinosJs/pinos-ui/commit/77fd4c537308758d86913fd69ed2a808253a1ea3))
+
+
+
 # [0.1.0-alpha.6](https://github.com/pinosJs/pinos-ui/compare/@pinos-ui/plugins@0.1.0-alpha.5...@pinos-ui/plugins@0.1.0-alpha.6) (2023-04-02)
 
 
