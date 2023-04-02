@@ -1,3 +1,12 @@
+# [0.1.0-alpha.3](https://github.com/pinosJs/pinos-ui/compare/v0.1.0-alpha.2...v0.1.0-alpha.3) (2023-04-02)
+
+
+### Features
+
+* **pinos-ui:** separate public methods ([896d815](https://github.com/pinosJs/pinos-ui/commit/896d815fc7c1755ad1c5fdac101df24b1ee14f67))
+
+
+
 # [0.1.0-alpha.2](https://github.com/pinosJs/pinos-ui/compare/v0.1.0-alpha.1...v0.1.0-alpha.2) (2023-04-01)
 
 
