@@ -1,3 +1,12 @@
+# [0.1.0-alpha.4](https://github.com/pinosJs/pinos-ui/compare/v0.1.0-alpha.3...v0.1.0-alpha.4) (2023-04-02)
+
+
+### Features
+
+* **pinos-ui:** add v-ellipsis directives ([18d3c64](https://github.com/pinosJs/pinos-ui/commit/18d3c64fd8c0c07406831db52d60e9f999c2c2a6))
+
+
+
 # [0.1.0-alpha.3](https://github.com/pinosJs/pinos-ui/compare/v0.1.0-alpha.2...v0.1.0-alpha.3) (2023-04-02)
 
 
