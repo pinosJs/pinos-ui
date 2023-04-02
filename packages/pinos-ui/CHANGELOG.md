@@ -1,3 +1,12 @@
+# [0.1.0-alpha.5](https://github.com/pinosJs/pinos-ui/compare/v0.1.0-alpha.4...v0.1.0-alpha.5) (2023-04-02)
+
+
+### Bug Fixes
+
+* **pinos-ui:** directive does not export a type ([93e0f03](https://github.com/pinosJs/pinos-ui/commit/93e0f037cd7010ab67c56f23710fe4efc1a0aa79))
+
+
+
 # [0.1.0-alpha.4](https://github.com/pinosJs/pinos-ui/compare/v0.1.0-alpha.3...v0.1.0-alpha.4) (2023-04-02)
 
 
