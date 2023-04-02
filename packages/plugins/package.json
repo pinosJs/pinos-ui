@@ -23,6 +23,9 @@
   "scripts": {
     "build": "esno scripts/build.ts"
   },
+  "dependencies": {
+    "@pinos-ui/utils": "workspace:^"
+  },
   "devDependencies": {
     "consola": "^2.15.3",
     "esbuild": "^0.15.13",
@@ -36,8 +39,5 @@
     "vite-plugin-style-import": "^2.0.0",
     "vite-tsconfig-paths": "^3.5.2",
     "vue": "3.2.40"
-  },
-  "dependencies": {
-    "@pinos-ui/utils": "workspace:^"
   }
 }
