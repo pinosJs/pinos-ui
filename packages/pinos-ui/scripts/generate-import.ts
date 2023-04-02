@@ -7,6 +7,7 @@ import fs from 'fs-extra'
 
 const dir = resolve(__dirname, '..')
 const componentDir = resolve(__dirname, '../components')
+const directivesDir = resolve(__dirname, '../directives')
 const styleDir = resolve(__dirname, '../styles')
 const ignorePropsDirs = new Set(['config-provider'])
 
@@ -15,6 +16,16 @@ export async function updateImport() {
   const componentDirs = await fg('*', {
     onlyDirectories: true,
     cwd: componentDir,
+    ignore: [
+      '_*',
+      'dist',
+      'node_modules',
+      'types'
+    ]
+  })
+  const directivesDirs = await fg('*', {
+    onlyDirectories: true,
+    cwd: directivesDir,
     ignore: [
       '_*',
       'dist',
@@ -57,15 +68,16 @@ export async function updateImport() {
 
   // 生成 index.ts
   const exportIndexStr = componentInfo.map(s => `export * from './components/${s.dirName}'`).join('\n')
-  await fs.writeFile(join(dir, 'index.ts'), `${exportIndexStr}\nexport { install } from './install-all'\nexport type { PropsOptions } from './props'\n`)
+  const exportDirectivesStr = directivesDirs.map(s => `export * from './directives/${s}'`).join('\n')
+  await fs.writeFile(join(dir, 'index.ts'), `${exportIndexStr}\n${exportDirectivesStr}\nexport { install } from './install-all'\nexport type { PropsOptions } from './props'\n`)
 
   // 生成 components.ts
-  const importComponentsStr = componentInfo.map((data) => {
+  const importComponentsStr = `${componentInfo.map((data) => {
     return `import { ${data.prefixComponentName} } from './components/${data.dirName}'`
-  }).join('\n')
+  }).join('\n')}\nimport { install } from './directives'`
   const exportComponentsStr = `\nexport const components = [\n${componentInfo.map((data, index) => {
-    return index === componentInfo.length - 1 ? `  ${data.prefixComponentName}` : `  ${data.prefixComponentName},`
-  }).join('\n')}\n]`
+    return `  ${data.prefixComponentName},`
+  }).join('\n')}\n  install\n]`
   await fs.writeFile(join(dir, 'components.ts'), `${importComponentsStr}\n${exportComponentsStr}\n`)
 
   // types.d.ts
