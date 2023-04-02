@@ -1,5 +1,5 @@
 import { namespace as defaultNamespace, prefix } from '@config/constant'
-import { toCapitalCase } from '@utils/common'
+import { toCapitalCase } from '@pinos-ui/utils'
 import { configNamespace } from '@utils/namespace'
 import { configProps } from '@utils/props'
 import type { PropsOptions } from './props'

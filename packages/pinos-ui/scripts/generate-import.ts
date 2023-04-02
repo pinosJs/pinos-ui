@@ -1,6 +1,6 @@
 import { resolve, join } from 'node:path'
 import { prefix } from '@config/constant'
-import { toCapitalCase } from '@utils/common'
+import { toCapitalCase } from '@pinos-ui/utils'
 import { ESLint } from 'eslint'
 import fg from 'fast-glob'
 import fs from 'fs-extra'

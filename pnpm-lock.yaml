@@ -56,6 +56,7 @@ importers:
 
   packages/pinos-ui:
     specifiers:
+      '@pinos-ui/utils': workspace:^
       '@types/eslint': ^8.21.3
       '@types/fs-extra': 9.0.13
       '@types/gulp': ^4.0.10
@@ -84,6 +85,8 @@ importers:
       vite-tsconfig-paths: ^3.5.2
       vitest: ^0.24.1
       vue: 3.2.40
+    dependencies:
+      '@pinos-ui/utils': link:../utils
     devDependencies:
       '@types/eslint': 8.21.3
       '@types/fs-extra': 9.0.13
@@ -8473,7 +8476,7 @@ packages:
       fs-extra: 10.1.0
       kolorist: 1.7.0
       ts-morph: 17.0.1
-      vite: 3.2.5
+      vite: 3.2.5_sass@1.59.3
     transitivePeerDependencies:
       - '@types/node'
       - rollup
@@ -8504,7 +8507,7 @@ packages:
       globrex: 0.1.2
       recrawl-sync: 2.2.3
       tsconfig-paths: 4.1.2
-      vite: 3.2.5
+      vite: 3.2.5_sass@1.59.3
     transitivePeerDependencies:
       - supports-color
     dev: true

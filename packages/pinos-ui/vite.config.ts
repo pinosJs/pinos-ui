@@ -13,7 +13,11 @@ export default defineConfig(() => {
     define: {
       __VERSION__: JSON.stringify(version)
     },
-
+    resolve: {
+      alias: [
+        { find: '@pinos-ui/utils', replacement: resolve(__dirname, '../utils/core') }
+      ]
+    },
     build: {
       minify: true,
       modulePreload: false,

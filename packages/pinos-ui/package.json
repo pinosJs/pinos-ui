@@ -31,6 +31,9 @@
   "peerDependencies": {
     "vue": "^3.2.25"
   },
+  "dependencies": {
+    "@pinos-ui/utils": "workspace:^"
+  },
   "devDependencies": {
     "@types/eslint": "^8.21.3",
     "@types/fs-extra": "9.0.13",

@@ -1,8 +1,7 @@
 // refer to：https://github.com/vexip-ui/vexip-ui/blob/main/common/config
 
+import { mergeObject, validateType } from '@pinos-ui/utils'
 import { computed, unref, inject, provide, reactive } from 'vue'
-import { validateType } from './common'
-import { mergeObject } from './merge-object'
 import type { PropsOptions } from '../props'
 import type { MaybeRef } from '../types/utils'
 import type { App, ComputedRef } from 'vue'
