@@ -23,7 +23,7 @@ export default defineConfig(() => {
       drop: ['debugger']
     },
     build: {
-      minify: 'true',
+      minify: true,
       modulePreload: false,
       lib: {
         entry: resolve(__dirname, 'index.ts'),

@@ -1,32 +1,40 @@
 import { getStyle } from '@pinos-ui/utils'
-import { nextTick } from 'vue'
+import { nextTick, unref } from 'vue'
 import type { ObjectDirective } from 'vue'
+import type { MaybeRef } from '~types/utils'
 
-type Binding = {
+type Binding = MaybeRef<{
+  content?: string
   lineClamp?: number
   fillText?: string
-}
+}>
 
 class Ellipsis {
   binding: Binding
   el: HTMLElement
 
   constructor(el: HTMLElement, binding: Binding) {
-    this.binding = binding || {
-      lineClamp: 1,
-      fillText: '...'
-    }
+    this.binding = binding
     this.el = el
     this.ellipsisText()
   }
 
-  ellipsisText() {
+  private ellipsisText(update = false) {
     nextTick(() => {
+      const binding = {
+        content: this.el.textContent || '',
+        lineClamp: 1,
+        fillText: '...',
+        ...unref((this.binding || {}))
+      }
+      const { lineClamp, fillText, content } = binding
+
+      if (update)
+        this.el.textContent = content
+
       const reg = /[px|rem|vw|em]/g
       let lineHeight = getStyle(this.el, 'lineHeight')
       lineHeight = lineHeight ? +(lineHeight.toString().split(reg)[0] || 0) : 0
-      const lineClamp = this.binding.lineClamp || 1
-      const fillText = this.binding.fillText || '...'
       const containerPaddingTop = getStyle(this.el, 'paddingTop')
       const containerPaddingBottom = getStyle(this.el, 'paddingBottom')
       let paddingTop = 0
@@ -43,7 +51,7 @@ class Ellipsis {
 
       let currentHeight = this.el.getBoundingClientRect().height - paddingTop - paddingBottom
 
-      let res = this.el.textContent || ''
+      let res = content || ''
       if (res) {
         while (currentHeight > limitHeight) {
           res = res.slice(0, -1)
@@ -62,6 +70,11 @@ class Ellipsis {
       }
     })
   }
+
+  update(binding: Binding) {
+    this.binding = binding
+    this.ellipsisText(true)
+  }
 }
 
 type EllipsisInstance = InstanceType<typeof Ellipsis>
@@ -75,8 +88,13 @@ export const vEllipsis: ObjectDirective<ExtendsHTMLElement, any> = {
     el.instance = new Ellipsis(el, binding.value)
   },
 
-  updated: (el: ExtendsHTMLElement) => {
-    el.instance?.ellipsisText()
+  updated: (el: ExtendsHTMLElement, binding: { value: Binding; oldValue: Binding }) => {
+    if (!binding)
+      return
+
+    const { value = {}, oldValue = {} } = binding
+    if (unref(value).content !== unref(oldValue).content)
+      el.instance?.update(binding.value)
   },
 
   beforeUnmount: (el: ExtendsHTMLElement) => {

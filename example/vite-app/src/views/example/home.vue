@@ -2,10 +2,11 @@
 import { ref, onMounted } from 'vue'
 
 const text = ref('的基地就得就得到得劲儿的的的金额ID将诶的金额跌价叠加的额得的将诶德吉饿的的Jedi的的的二弟的记得记得记得接近底价得的将诶德吉饿的记得记得就得')
-
+const lineClamp = ref(1)
 onMounted(() => {
   setTimeout(() => {
-    text.value = '123'
+    text.value = 'hello world ddehdiei 的话ID黑饿得慌IDhi额蝴蝶花的话ID黑饿得慌IDhi额蝴蝶花的话ID黑饿得慌IDhi额蝴蝶花'
+    lineClamp.value = 2
     console.log('跟新后的: ', text.value)
   }, 2000)
 })
@@ -29,25 +30,35 @@ export default {
     </pin-config-provider>
 
     <div
+      v-ellipsis
+      class="text2"
+    >
+      的基地就得就得到得劲儿的的的金额ID将诶的金额跌价叠加的额得的将诶德吉饿的的Jedi的的的二弟的记得记得记得接近底价得的将诶德吉饿的记得记得就得
+    </div>
+
+    <div
       v-ellipsis="{
         lineClamp: 2
       }"
       class="text2"
     >
       的基地就得就得到得劲儿的的的金额ID将诶的金额跌价叠加的额得的将诶德吉饿的的Jedi的的的二弟的记得记得记得接近底价得的将诶德吉饿的记得记得就得
-      的基地就得就得到得劲儿的的的金额ID将诶的金额跌价叠加的额得的将诶德吉饿的的Jedi的的的二弟的记得记得记得接近底价得的将诶德吉饿的记得记得就得
     </div>
-    {{ text }}
+
     <div
-      v-ellipsis
+      v-ellipsis="{
+        content: text,
+        lineClamp: lineClamp
+      }"
       class="text"
     >
       {{ text }}
     </div>
+
     <div class="flex">
       <div
         v-ellipsis="{
-          lineClamp: 3
+          lineClamp: 3,
         }"
         class="text3"
       >
@@ -58,11 +69,12 @@ export default {
         我是固定的
       </div>
     </div>
+
     <div class="flex">
       <div
         v-ellipsis="{
           lineClamp: 2,
-          fillText: '🔥🔥'
+          fillText: '🔥🔥',
         }"
         class="text3"
       >
@@ -78,7 +90,7 @@ export default {
       <div
         v-ellipsis="{
           lineClamp: 1,
-          fillText: '🔥🔥'
+          fillText: '🔥🔥',
         }"
         class="text3"
       >
