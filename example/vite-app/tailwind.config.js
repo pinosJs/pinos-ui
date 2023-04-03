@@ -15,7 +15,7 @@ const fontSize = {}
 })()
 
 module.exports = {
-  important: '#app',
+  // important: '#app',
   content: ['*.html', './src/**/*.{js,jsx,ts,tsx,vue}'],
   theme: {
     spacing,

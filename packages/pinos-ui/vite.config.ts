@@ -18,8 +18,12 @@ export default defineConfig(() => {
         { find: '@pinos-ui/utils', replacement: resolve(__dirname, '../utils/core') }
       ]
     },
+    esbuild: {
+      pure: ['console.log'],
+      drop: ['debugger']
+    },
     build: {
-      minify: true,
+      minify: 'true',
       modulePreload: false,
       lib: {
         entry: resolve(__dirname, 'index.ts'),

@@ -4,6 +4,7 @@ import type { ObjectDirective } from 'vue'
 
 type Binding = {
   lineClamp?: number
+  fillText?: string
 }
 
 class Ellipsis {
@@ -11,60 +12,55 @@ class Ellipsis {
   el: HTMLElement
 
   constructor(el: HTMLElement, binding: Binding) {
-    this.binding = binding
+    this.binding = binding || {
+      lineClamp: 1,
+      fillText: '...'
+    }
     this.el = el
     this.ellipsisText()
   }
 
-  private ellipsisText() {
-    // 判断当前元素是否本身就设置了换行
-    const isWrap = getStyle(this.el, 'whiteSpace') !== 'normal'
-    // 允许显示的行数
-    const lineClamp = this.binding.lineClamp || 1
-    // 先将其设置为不换行，获取其文本的真实宽度
-    this.el.style.whiteSpace = 'nowrap'
-    // 容器本身的宽度
-    const containerWidth = this.el.getBoundingClientRect().width
-    // 容器的左右边距
-    const containerPaddingLeft = getStyle(this.el, 'paddingLeft')
-    const containerPaddingRight = getStyle(this.el, 'paddingRight')
-    let paddingLeft = 0
-    let paddingRight = 0
-    if (containerPaddingLeft)
-      paddingLeft = +(containerPaddingLeft.toString().split(/[px | rem]/g)[0] || 0)
+  ellipsisText() {
+    nextTick(() => {
+      const reg = /[px|rem|vw|em]/g
+      let lineHeight = getStyle(this.el, 'lineHeight')
+      lineHeight = lineHeight ? +(lineHeight.toString().split(reg)[0] || 0) : 0
+      const lineClamp = this.binding.lineClamp || 1
+      const fillText = this.binding.fillText || '...'
+      const containerPaddingTop = getStyle(this.el, 'paddingTop')
+      const containerPaddingBottom = getStyle(this.el, 'paddingBottom')
+      let paddingTop = 0
+      let paddingBottom = 0
+      if (containerPaddingTop)
+        paddingTop = +(containerPaddingTop.toString().split(reg)[0] || 0)
+      if (containerPaddingBottom)
+        paddingBottom = +(containerPaddingBottom.toString().split(reg)[0] || 0)
 
-    if (containerPaddingRight)
-      paddingRight = +(containerPaddingRight.toString().split(/[px | rem]/g)[0] || 0)
+      const limitHeight = lineHeight * lineClamp
 
-    // 容器的有效width
-    const containerEffectWidth = containerWidth - paddingLeft - paddingRight
-    const limitWidth = containerEffectWidth * lineClamp
-    // 获取改文本节点的宽度
-    const range = document.createRange()
-    range.setStart(this.el, 0)
-    range.setEnd(this.el, this.el.childNodes.length)
-    let rangeTextWidth = range.getBoundingClientRect().width
+      if (limitHeight === 0)
+        throw new Error('limitHeight is zero')
 
-    const textContent = this.el.textContent
-    let res = textContent || ''
-    if (textContent) {
-      while (rangeTextWidth > limitWidth) {
-        res = res.slice(0, -1)
-        if (res) {
-          this.el.innerHTML = `${res}...`
-          const rRange = document.createRange()
-          rRange.setStart(this.el, 0)
-          rRange.setEnd(this.el, this.el.childNodes.length)
-          rangeTextWidth = rRange.getBoundingClientRect().width
-        } else {
-          this.el.innerHTML = '...'
-          rangeTextWidth = 0
+      let currentHeight = this.el.getBoundingClientRect().height - paddingTop - paddingBottom
+
+      let res = this.el.textContent || ''
+      if (res) {
+        while (currentHeight > limitHeight) {
+          res = res.slice(0, -1)
+          if (res) {
+            this.el.textContent = `${res}${fillText}`
+            currentHeight = this.el.getBoundingClientRect().height - paddingTop - paddingBottom
+          } else {
+            this.el.textContent = fillText
+            const h = this.el.getBoundingClientRect().height - paddingTop - paddingBottom
+            if (h > limitHeight)
+              this.el.textContent = ''
+
+            currentHeight = 0
+          }
         }
       }
-    }
-
-    if (!isWrap)
-      this.el.style.whiteSpace = 'normal'
+    })
   }
 }
 
@@ -76,9 +72,11 @@ interface ExtendsHTMLElement extends HTMLElement {
 
 export const vEllipsis: ObjectDirective<ExtendsHTMLElement, any> = {
   mounted: (el: ExtendsHTMLElement, binding: { value: Binding }) => {
-    nextTick(() => {
-      el.instance = new Ellipsis(el, binding.value)
-    })
+    el.instance = new Ellipsis(el, binding.value)
+  },
+
+  updated: (el: ExtendsHTMLElement) => {
+    el.instance?.ellipsisText()
   },
 
   beforeUnmount: (el: ExtendsHTMLElement) => {

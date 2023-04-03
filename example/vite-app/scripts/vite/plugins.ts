@@ -20,9 +20,9 @@ export default (env: Record<string, any>) => {
     vue(),
     vueJsx(),
     // 按需引入样式，配合手动导入的方式
-    createStyleImportPlugin({
-      resolves: [PinosUIStyleImportResolve()]
-    }),
+    // createStyleImportPlugin({
+    //   resolves: [PinosUIStyleImportResolve()]
+    // }),
     // AutoImport({
     //   resolvers: [ElementPlusResolver(), PinosUIResolver()]
     // }),
