@@ -1,4 +1,11 @@
-import { validateType, validatePhoneNumber, validateIdCard, validateNumber } from './index'
+import {
+  validateType,
+  validatePhoneNumber,
+  validateIdCard,
+  validateNumber,
+  mustBeChinese,
+  existEmoji
+} from './index'
 
 describe('test export module', () => {
   it('should export module', () => {
@@ -6,6 +13,8 @@ describe('test export module', () => {
     expect(validateIdCard).toBeDefined()
     expect(validatePhoneNumber).toBeDefined()
     expect(validateNumber).toBeDefined()
+    expect(mustBeChinese).toBeDefined()
+    expect(existEmoji).toBeDefined()
   })
 })
 
@@ -91,6 +100,7 @@ describe('test validatePhoneNumber', () => {
     expect(validatePhoneNumber('1398000100')).toBeFalsy()
     expect(validatePhoneNumber('139800010011')).toBeFalsy()
     expect(validatePhoneNumber('')).toBeFalsy()
+    expect(validatePhoneNumber(' ')).toBeFalsy()
     expect(validatePhoneNumber('13980001001')).toBeTruthy()
   })
 
@@ -105,6 +115,8 @@ describe('test validatePhoneNumber', () => {
 
 describe('test validateIdCard', () => {
   it('Length detection', () => {
+    expect(validateIdCard('')).toBeFalsy()
+    expect(validateIdCard(' ')).toBeFalsy()
     expect(validateIdCard('36010219990708300')).toBeFalsy()
     expect(validateIdCard('3601021999070830022')).toBeFalsy()
   })
@@ -181,5 +193,37 @@ describe('test validateNumber', () => {
     expect(validateNumber(-1.1, { fixed: 2, negative: true })).toBeTruthy()
     expect(validateNumber(-1.10, { fixed: 2, negative: true })).toBeTruthy()
     expect(validateNumber(-1.101, { fixed: 2, negative: true })).toBeFalsy()
+  })
+})
+
+describe('test mustBeChinese', () => {
+  it('is work', () => {
+    expect(mustBeChinese('你好？')).toBeFalsy()
+    expect(mustBeChinese('你好？啊')).toBeFalsy()
+    expect(mustBeChinese('你好1啊')).toBeFalsy()
+    expect(mustBeChinese('')).toBeFalsy()
+    expect(mustBeChinese(' ')).toBeFalsy()
+    expect(mustBeChinese(' 1你好 ')).toBeFalsy()
+    expect(mustBeChinese('1')).toBeFalsy()
+    expect(mustBeChinese('?')).toBeFalsy()
+    expect(mustBeChinese('你好')).toBeTruthy()
+  })
+})
+
+describe('test existEmoji', () => {
+  it('is work', () => {
+    expect(existEmoji('你好？')).toBeFalsy()
+    expect(existEmoji('你好？啊')).toBeFalsy()
+    expect(existEmoji('你好1啊')).toBeFalsy()
+    expect(existEmoji('')).toBeFalsy()
+    expect(existEmoji(' ')).toBeFalsy()
+    expect(existEmoji(' 1你好 ')).toBeFalsy()
+    expect(existEmoji('1')).toBeFalsy()
+    expect(existEmoji('?')).toBeFalsy()
+    expect(existEmoji('你好')).toBeFalsy()
+    expect(existEmoji('🚀🔥')).toBeTruthy()
+    expect(existEmoji('🚀好')).toBeTruthy()
+    expect(existEmoji('🚀1')).toBeTruthy()
+    expect(existEmoji('🚀？')).toBeTruthy()
   })
 })
