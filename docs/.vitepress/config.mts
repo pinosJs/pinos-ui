@@ -5,13 +5,19 @@ import initSideBar from './config/side-bar'
 
 export default defineConfig({
   title: 'pinos-ui',
+  outDir: '../docs-dist',
   description: '一个vue3的组件库',
 
-  head: [],
+  head: [
+
+  ],
 
   themeConfig: {
     nav: initNav(),
-    sidebar: initSideBar()
+    sidebar: initSideBar(),
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/pinosJs/pinos-ui' }
+    ]
   },
 
   markdown: {
