@@ -1,0 +1,186 @@
+/**
+ * Colors
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --vp-c-brand: #2bb778;
+  --vp-c-brand-light: #2ec581;
+  --vp-c-brand-lighter: #34d08a;
+  --vp-c-brand-lightest: #42d392;
+  --vp-c-brand-dark: #27aa6f;
+  --vp-c-brand-darker: #249c66;
+  --vp-c-brand-dimm: rgba(100, 108, 255, 0.08);
+}
+
+
+/**
+ * Component: Button
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --vp-button-brand-border: var(--vp-c-brand-light);
+  --vp-button-brand-text: var(--vp-c-text-dark-1);
+  --vp-button-brand-bg: var(--vp-c-brand);
+  --vp-button-brand-hover-border: var(--vp-c-brand-light);
+  --vp-button-brand-hover-text: var(--vp-c-text-dark-1);
+  --vp-button-brand-hover-bg: var(--vp-c-brand-light);
+  --vp-button-brand-active-border: var(--vp-c-brand-light);
+  --vp-button-brand-active-text: var(--vp-c-text-dark-1);
+  --vp-button-brand-active-bg: var(--vp-button-brand-bg);
+}
+
+/**
+ * Component: Home
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background:
+    linear-gradient(
+      120deg,
+      #42d392 30%,
+      #647eff
+    );
+  --vp-home-hero-image-background-image:
+    linear-gradient(
+      -45deg,
+      #42d392 50%,
+      #647eff 50%
+    );
+  --vp-home-hero-image-filter: blur(40px);
+}
+
+@media (min-width: 640px) {
+  :root {
+    --vp-home-hero-image-filter: blur(56px);
+  }
+}
+
+@media (min-width: 960px) {
+  :root {
+    --vp-home-hero-image-filter: blur(72px);
+  }
+}
+
+/**
+ * Component: Custom Block
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --vp-custom-block-tip-border: var(--vp-c-brand);
+  --vp-custom-block-tip-text: var(--vp-c-brand-darker);
+  --vp-custom-block-tip-bg: var(--vp-c-brand-dimm);
+}
+
+.dark {
+  --vp-custom-block-tip-border: var(--vp-c-brand);
+  --vp-custom-block-tip-text: var(--vp-c-brand-lightest);
+  --vp-custom-block-tip-bg: var(--vp-c-brand-dimm);
+}
+
+/**
+ * Component: Algolia
+ * -------------------------------------------------------------------------- */
+
+.DocSearch {
+  --docsearch-primary-color: var(--vp-c-brand) !important;
+}
+
+/**
+ * VitePress: Custom fix
+ * -------------------------------------------------------------------------- */
+
+/*
+  Use lighter colors for links in dark mode for a11y.
+  Also specify some classes twice to have higher specificity
+  over scoped class data attribute.
+*/
+.dark .vp-doc a,
+.dark .vp-doc a > code,
+.dark .VPNavBarMenuLink.VPNavBarMenuLink:hover,
+.dark .VPNavBarMenuLink.VPNavBarMenuLink.active,
+.dark .link.link:hover,
+.dark .link.link.active,
+.dark .edit-link-button.edit-link-button,
+.dark .pager-link .title {
+  color: var(--vp-c-brand-lighter);
+}
+
+.dark .vp-doc a:hover,
+.dark .vp-doc a > code:hover {
+  color: var(--vp-c-brand-lightest);
+  opacity: 1;
+}
+
+/* Transition by color instead of opacity */
+.dark .vp-doc .custom-block a {
+  transition: color 0.25s;
+}
+
+.vp-doc h3 {
+  margin-bottom: 10px;
+}
+
+.vp-doc h4,
+.vp-doc h5 {
+  margin: 15px 0 10px;
+}
+
+/**
+ * Table
+ * -------------------------------------------------------------------------- */
+
+.vp-doc table {
+  display: block;
+  border-collapse: collapse;
+  margin: 0;
+  overflow-x: auto;
+}
+
+.vp-doc tr {
+  border-top: none;
+  transition: background-color 0.5s;
+}
+
+.vp-doc tr:nth-child(2n) {
+  background-color: transparent;
+}
+
+.vp-doc th,
+.vp-doc td {
+  font-size: 14px;
+  border: none;
+  border: 1px solid #eee;
+  padding: 10px 16px;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.pin-table th,
+.pin-table td {
+  border: none;
+  border-bottom: 1px solid #eee;
+}
+
+.vp-doc th {
+  font-size: 14px;
+  font-weight: 600;
+  background-color: rgba(56, 146, 215, 0.1);
+}
+
+.dark .vp-doc th {
+  background-color: var(--vp-c-black);
+}
+
+/*
+fix: vp 与 element-ui 样式冲突
+*/
+
+.el-pager {
+  padding-left: 0 !important;
+  margin: 0 !important;
+}
+
+.el-pager li + li {
+  margin-top: 0;
+}

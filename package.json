@@ -5,6 +5,9 @@
   "license": "MIT",
   "scripts": {
     "cz": "git-cz",
+    "docs:dev": "pnpm run -C docs docs:dev",
+    "docs:build": "pnpm run -C docs docs:build",
+    "docs:serve": "pnpm run -C docs docs:serve",
     "clean": "del packages/**/dist",
     "build": "pnpm clean && pnpm -r --filter='./packages/*' run build",
     "release": "esno scripts/release.ts",

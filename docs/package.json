@@ -1,0 +1,21 @@
+{
+  "name": "pinos-ui-docs",
+  "private": true,
+  "scripts": {
+    "docs:dev": "vitepress dev . --port 5001",
+    "docs:build": "vitepress build .",
+    "docs:serve": "vitepress serve ."
+  },
+  "dependencies": {
+    "element-plus": "^2.2.21"
+  },
+  "devDependencies": {
+    "@algolia/client-search": "4.14.2",
+    "@ruabick/md-demo-plugins": "^0.3.1",
+    "@ruabick/vitepress-demo-block": "^0.3.1",
+    "typescript": "^4.8.3",
+    "vite": "3.1.7",
+    "vitepress": "1.0.0-alpha.64",
+    "vue": "3.2.40"
+  }
+}
