@@ -1,5 +1,6 @@
 export * from './components/button'
 export * from './components/config-provider'
+export * from './components/table'
 export * from './directives/ellipsis'
 export { install } from './install-all'
 export type { PropsOptions } from './props'

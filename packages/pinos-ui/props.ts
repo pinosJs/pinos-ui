@@ -1,5 +1,7 @@
 import type { ButtonConfigProps } from './components/button'
+import type { TableConfigProps } from './components/table'
 
 export interface PropsOptions {
-  Button?: ButtonConfigProps
+  button?: ButtonConfigProps
+  table?: TableConfigProps
 }

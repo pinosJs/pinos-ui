@@ -6,7 +6,7 @@ export default defineComponent({
   name: 'Button',
   props: buttonProps,
   setup(_props) {
-    const props = useProps('Button', _props, {
+    const props = useProps('button', _props, {
       text: '123'
     })
     const nh = useNameHelper('button')

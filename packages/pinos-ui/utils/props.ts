@@ -2,7 +2,6 @@
 
 import { mergeObject, validateType } from '@pinos-ui/utils'
 import { computed, unref, inject, provide, reactive } from 'vue'
-import type { PropsOptions } from '../props'
 import type { MaybeRef } from '../types/utils'
 import type { App, ComputedRef } from 'vue'
 
@@ -36,7 +35,7 @@ export function configProps<T>(props: MaybeRef<T>, app?: App) {
 }
 
 export function useProps<T extends Record<string, any>>(
-  name: keyof PropsOptions,
+  name: string,
   sourceProps: T,
   defaultData: Partial<T> = {}
 ) {

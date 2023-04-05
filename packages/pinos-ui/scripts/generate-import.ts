@@ -20,7 +20,8 @@ export async function updateImport() {
       '_*',
       'dist',
       'node_modules',
-      'types'
+      'types',
+      'common'
     ]
   })
   const directivesDirs = await fg('*', {
@@ -61,7 +62,7 @@ export async function updateImport() {
   }).join('\n')
 
   const interfaceStr = `\nexport interface PropsOptions {\n${effectPropsDirs.map((data) => {
-    return `  ${data.capitalCaseName}?: ${data.configPropsName}`
+    return `  ${data.capitalCaseName.toLowerCase()}?: ${data.configPropsName}`
   }).join('\n')}\n}`
 
   await fs.writeFile(join(dir, 'props.ts'), `${importStr}\n${interfaceStr}\n`)
