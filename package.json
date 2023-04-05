@@ -12,7 +12,8 @@
     "build": "pnpm clean && pnpm -r --filter='./packages/*' run build",
     "release": "esno scripts/release.ts",
     "ci-publish": "esno scripts/publish-ci.ts",
-    "play": "esno scripts/play.ts"
+    "play": "esno scripts/play.ts",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
