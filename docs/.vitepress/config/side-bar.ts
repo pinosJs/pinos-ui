@@ -17,8 +17,8 @@ function sidebarComponents() {
     text: '组件',
     items: [
       {
-        text: '测试',
-        link: '/components/index'
+        text: 'table',
+        link: '/components/table'
       }
     ]
   }, {

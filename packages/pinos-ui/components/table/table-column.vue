@@ -63,7 +63,7 @@ import type { Ref } from 'vue'
 
 const _props = defineProps(tableColumnProps)
 const props = useProps('', _props, {
-  name: '',
+  name: 'el-table-column',
   columnProps: {},
   prefix: '',
   slots: {}

@@ -61,7 +61,6 @@ import RenderSlot from '../common/render-slot'
 import { tableProps } from './props'
 import TableColumn from './table-column.vue'
 import type { TableColumnProps } from './props'
-import type { TableExpose } from './types'
 import type { MaybeRef } from '~types/utils'
 
 const _props = defineProps(tableProps)
@@ -138,7 +137,7 @@ const getColumnKey = (columnProps: TableColumnProps, index: number) => {
 }
 
 // 删除某一行的方法，供外部调用
-const deleteColumn = async <T = any>(list: MaybeRef<T[]>, index: number) => {
+const deleteRow = <T = any>(list: MaybeRef<T[]>, index: number) => {
   const l = isRef(list) ? list.value : list
   const len = l.length
   const pageCounts = Math.ceil(total.value / pageSize.value)
@@ -171,8 +170,8 @@ const deleteColumn = async <T = any>(list: MaybeRef<T[]>, index: number) => {
   }
 }
 
-defineExpose<TableExpose>({
-  deleteColumn
+defineExpose({
+  deleteRow
 })
 </script>
 

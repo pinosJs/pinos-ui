@@ -81,4 +81,4 @@ export const tableColumnProps = {
 }
 
 export type TableProps = ExtractPropTypes<typeof tableProps>
-export type TableConfigProps = ConfigurableProps<TableProps, 'tableData' | 'tableEvents' | 'currentPage' | 'showPagination' | 'total' | 'updateMethods'>
+export type TableConfigProps = ConfigurableProps<TableProps, 'tableData' | 'tableEvents' | 'tableColumnProps' | 'tableColumnKey' | 'currentPage' | 'showPagination' | 'total' | 'updateMethods'>

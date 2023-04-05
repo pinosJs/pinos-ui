@@ -60,12 +60,14 @@ importers:
       '@ruabick/md-demo-plugins': ^0.3.1
       '@ruabick/vitepress-demo-block': ^0.3.1
       element-plus: ^2.2.21
+      pinos-ui: workspace:0.1.0-alpha.5
       typescript: ^4.8.3
       vite: 3.1.7
       vitepress: 1.0.0-alpha.64
       vue: 3.2.40
     dependencies:
       element-plus: 2.3.2_vue@3.2.40
+      pinos-ui: link:../packages/pinos-ui
     devDependencies:
       '@algolia/client-search': 4.14.2
       '@ruabick/md-demo-plugins': 0.3.1_tbpndr44ulefs3hehwpi2mkf2y
@@ -2215,7 +2217,7 @@ packages:
       vite: ^3.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 3.2.5_rn5k35l6zsp5kysw32gksgiyiu
+      vite: 3.2.5
       vue: 3.2.47
     dev: true
 

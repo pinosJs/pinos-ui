@@ -56,16 +56,20 @@ export function useProps<T extends Record<string, any>>(
   keys.forEach((key) => {
     const defaultValue = defaultData[key] as any
     props[key] = computed(() => {
-      const providedValue = defaultConfigProps.value[key]
+      if (sourceProps[key] === null || sourceProps[key] === undefined) {
+        const providedValue = defaultConfigProps.value[key]
 
-      if (providedValue !== null && providedValue !== undefined) {
-        if (isMergeType(defaultValue) && isMergeType(providedValue))
-          return mergeObject(defaultValue, providedValue)
-        else
-          return providedValue
+        if (providedValue !== null && providedValue !== undefined) {
+          if (isMergeType(defaultValue) && isMergeType(providedValue))
+            return mergeObject(defaultValue, providedValue)
+          else
+            return providedValue
+        }
+
+        return defaultValue
       }
 
-      return defaultValue
+      return sourceProps[key]
     })
   })
 

@@ -9,7 +9,7 @@
   --vp-c-brand-lightest: #42d392;
   --vp-c-brand-dark: #27aa6f;
   --vp-c-brand-darker: #249c66;
-  --vp-c-brand-dimm: rgba(100, 108, 255, 0.08);
+  --vp-c-brand-dimm: rgb(190,240,218, 0.4);
 }
 
 
@@ -165,7 +165,7 @@
 .vp-doc th {
   font-size: 14px;
   font-weight: 600;
-  background-color: rgba(56, 146, 215, 0.1);
+  background-color: var(--vp-c-brand-dimm);
 }
 
 .dark .vp-doc th {
@@ -183,4 +183,8 @@ fix: vp 与 element-ui 样式冲突
 
 .el-pager li + li {
   margin-top: 0;
+}
+
+.demo-platforms {
+  visibility: hidden;
 }

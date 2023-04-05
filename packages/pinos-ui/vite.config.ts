@@ -15,6 +15,7 @@ export default defineConfig(() => {
     },
     resolve: {
       alias: [
+        { find: /^~types/, replacement: resolve(__dirname, 'types') },
         { find: '@pinos-ui/utils', replacement: resolve(__dirname, '../utils/core') }
       ]
     },
