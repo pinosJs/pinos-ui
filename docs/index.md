@@ -8,6 +8,9 @@ hero:
   name: pinos-ui
   text: vue3的组件库
   tagline: 提高开发效率
+  image:
+    src: /logo.png
+    alt: pinos-ui
 
   actions:
     - theme: brand

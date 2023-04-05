@@ -9,10 +9,12 @@ export default defineConfig({
   description: '一个vue3的组件库',
 
   head: [
-
+    ['link', { rel: 'icon', href: '/mini-logo.png' }],
+    ['meta', { name: 'theme-color', content: '#42d392' }]
   ],
 
   themeConfig: {
+    logo: '/logo.png',
     nav: initNav(),
     sidebar: initSideBar(),
     socialLinks: [

@@ -62,7 +62,7 @@ outline: deep
 
 ### config-provide 全局配置table组件
 
-<demo src="./demos/table/element-plus/config-provide.vue" title="提示" desc="该用例全局配置了table的border属性和数据未空时的渲染组件"></demo>
+<demo src="./demos/table/element-plus/config-provide.vue" title="提示" desc="该用例全局配置了table的border属性和数据为空时的渲染组件"></demo>
 
 ### 综合使用
 
