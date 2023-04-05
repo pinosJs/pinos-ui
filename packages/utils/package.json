@@ -3,7 +3,15 @@
   "version": "0.1.0-alpha.0",
   "description": "some common methods",
   "author": "eric<https://github.com/GOGOGOSIR>",
-  "sideEffects": false,
+  "homepage": "https://pinos-ui.netlify.app/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pinosJs/pinos-ui.git",
+    "directory": "packages/utils"
+  },
+  "bugs": {
+    "url": "https://github.com/pinosJs/pinos-ui/issues"
+  },
   "exports": {
     ".": {
       "types": "./dist/types/index.d.ts",

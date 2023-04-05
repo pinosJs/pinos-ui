@@ -4,10 +4,13 @@
   "description": "A Vue 3 UI library",
   "author": "eric<https://github.com/GOGOGOSIR>",
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://pinos-ui.netlify.app/",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pinosJs/pinos-ui.git"
+    "url": "https://github.com/pinosJs/pinos-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pinosJs/pinos-ui/issues"
   },
   "exports": {
     ".": {

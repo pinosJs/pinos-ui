@@ -3,11 +3,14 @@
   "version": "0.1.0-alpha.9",
   "author": "eric<https://github.com/GOGOGOSIR>",
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://pinos-ui.netlify.app/",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pinosJs/pinos-ui.git",
+    "url": "https://github.com/pinosJs/pinos-ui.git",
     "directory": "packages/plugins"
+  },
+  "bugs": {
+    "url": "https://github.com/pinosJs/pinos-ui/issues"
   },
   "exports": {
     ".": {
