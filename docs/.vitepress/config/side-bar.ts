@@ -25,8 +25,8 @@ function sidebarComponents() {
     text: '指令',
     items: [
       {
-        text: '测试',
-        link: '/components/directives/index'
+        text: 'v-ellipsis',
+        link: '/components/directives/v-ellipsis'
       }
     ]
   }]

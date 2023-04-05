@@ -4,10 +4,6 @@ outline: deep
 
 # table
 
-## 痛点
-
-在多数的组件库，如：[naiveui](https://www.naiveui.com/zh-CN/light/components/data-table)、[vexipui](https://www.vexipui.com/zh-CN/components/table)、[antdv](https://next.antdv.com/components/table) 中都有 table 组件，且它们都有一个共同点，都是通过配置的方式去渲染的。但是 [element-plus](https://element-plus.org/zh-CN/component/table.html) 中的 table 组件则是通过 el-table-column 组件去渲染每一列，这也就意味着，我们需要写许多次 el-table-column，这样我感觉代码不够简洁和直观。因此封装了这该组件用于解决这个问题。
-
 ## 介绍
 
 以 element-plus 为例，该组件将其 table 组件，pagination组件进行了整合, 并扩展了一些slot，如：cellSlot（单元格插槽）、columnSlot（列插槽）、customHeaderSlot（自定义表头插槽），可以让开发者灵活的定义。除此之外，该组件还提供了一个 deleteRow 实例方法，用于删除某一行并更新 table 数据。
@@ -15,6 +11,10 @@ outline: deep
 ::: tip
 使用该组件时，请确保在项目中已经安装并配置好 element-plus 库，当然如果还有其他库也是和 element-plus 有着类似的问题，也可以用该组件让其以配置的方式去渲染，你只需要配置 componentsConfig 即可。
 :::
+
+## 解决痛点
+
+在多数的组件库，如：[naiveui](https://www.naiveui.com/zh-CN/light/components/data-table)、[vexipui](https://www.vexipui.com/zh-CN/components/table)、[antdv](https://next.antdv.com/components/table) 中都有 table 组件，且它们都有一个共同点，都是通过配置的方式去渲染的。但是 [element-plus](https://element-plus.org/zh-CN/component/table.html) 中的 table 组件则是通过 el-table-column 组件去渲染每一列，这也就意味着，我们需要写许多次 el-table-column，这样我感觉代码不够简洁和直观。因此封装了这该组件用于解决这个问题。
 
 ## 应用
 
@@ -65,6 +65,8 @@ outline: deep
 <demo src="./demos/table/element-plus/config-provide.vue" title="提示" desc="该用例全局配置了table的border属性和数据为空时的渲染组件"></demo>
 
 ### 综合使用
+
+如果配置了 update-methods 属性，在分页触发 size-change 和 current-change 时会自动调用 table 的更新数据方法
 
 <demo src="./demos/table/element-plus/default.vue" title="提示" desc="该事例包含了列插槽和单元格插槽的用例"></demo>
 
