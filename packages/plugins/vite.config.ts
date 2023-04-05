@@ -27,10 +27,14 @@ export default defineConfig(() => {
         { find: '@pinos-ui/utils', replacement: resolve(__dirname, '../utils/core') }
       ]
     },
+    esbuild: {
+      pure: ['console.log'],
+      drop: ['debugger']
+    },
     build: {
       outDir: 'dist',
       modulePreload: false,
-      minify: false,
+      minify: true,
       lib: {
         entry: resolve(__dirname, './index.ts'),
         formats: ['es', 'cjs', 'iife'],

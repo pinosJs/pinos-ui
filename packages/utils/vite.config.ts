@@ -33,6 +33,10 @@ export default defineConfig(() => {
     define: {
       __VERSION__: JSON.stringify(version)
     },
+    esbuild: {
+      pure: ['console.log'],
+      drop: ['debugger']
+    },
     build: {
       outDir: 'dist',
       modulePreload: false,
