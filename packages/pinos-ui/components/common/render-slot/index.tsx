@@ -13,13 +13,11 @@ export default defineComponent({
     const renderSlot = () => {
       const { slotRender, scopeData } = props
       if (slotRender) {
-        if (scopeData) {
-          return slotRender({
-            data: scopeData
-          })
-        } else {
-          return slotRender()
-        }
+        const params: Record<string, any> = {}
+        if (scopeData)
+          params.data = scopeData
+
+        return slotRender(params)
       } else {
         return null
       }

@@ -9,7 +9,7 @@ const dir = resolve(__dirname, '..')
 const componentDir = resolve(__dirname, '../components')
 const directivesDir = resolve(__dirname, '../directives')
 const styleDir = resolve(__dirname, '../styles')
-const ignorePropsDirs = new Set(['config-provider'])
+const ignorePropsDirs = new Set(['config-provider', 'filter-group'])
 
 export async function updateImport() {
   const eslint = new ESLint({ fix: true })

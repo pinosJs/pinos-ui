@@ -6,6 +6,10 @@ export type DeepPartial<T extends Record<string, any>> = {
   [K in keyof T]?: T[K] extends Record<string, any> ? DeepPartial<T[K]> : T[K]
 }
 
+export type DeepExclude<T, G> = T extends Record<string, any> ? {
+  [K in keyof T]-?: DeepExclude<T[K], G>
+} : Exclude<T, G>
+
 export type CommonExcludedProps =
    | 'inherit'
    | 'value'

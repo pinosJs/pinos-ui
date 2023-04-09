@@ -1,0 +1,12 @@
+@use "./design" as *;
+
+.#{$namespace}-filter-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  &-item {
+    display: block;
+    margin-right: 8px;
+  }
+}

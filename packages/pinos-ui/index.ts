@@ -1,5 +1,6 @@
 export * from './components/button'
 export * from './components/config-provider'
+export * from './components/filter-group'
 export * from './components/table'
 export * from './directives/ellipsis'
 export { install } from './install-all'

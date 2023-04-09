@@ -12,15 +12,26 @@ function sidebarGuides() {
   ]
 }
 
+const components = [
+  {
+    text: 'filter-group',
+    link: '/components/filter-group'
+  },
+  {
+    text: 'table',
+    link: '/components/table'
+  }
+].sort()
+
+export const defaultComponentLink = (components[0] as ({
+  text: string
+  link: string
+})).link
+
 function sidebarComponents() {
   return [{
     text: '组件',
-    items: [
-      {
-        text: 'table',
-        link: '/components/table'
-      }
-    ]
+    items: components
   }, {
     text: '指令',
     items: [
