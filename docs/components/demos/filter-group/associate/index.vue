@@ -42,6 +42,15 @@ export default defineComponent({
           }
         },
         {
+          element: 'el-input',
+          modelKey: 'text',
+          hidden: !query.value.value1,
+          props: {
+            placeholder: '请输入',
+            clearable: true
+          }
+        },
+        {
           element: 'el-select',
           modelKey: 'value2',
           props: {
@@ -91,6 +100,7 @@ export default defineComponent({
     const query = ref<Record<string, any>>({
       value1: '',
       value2: '',
+      text: '',
       value3: []
     })
 

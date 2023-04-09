@@ -132,3 +132,24 @@ el-time-picker 配置类似
 ### 数据联动
 
 <demo src="./demos/filter-group/associate/index.vue" ></demo>
+
+## filterGroup 属性
+
+| 属性名    | 说明   | 类型   | 必传   | 默认值  | 是否可以全局配置 |
+| ---- | ---- | ------ |  ------- |  ------- | ------- |
+| modelValue / v-model | 绑定值   | object   | 是 | - | 否 |
+| option | 配置项   | FilterGroupOption[]   | 是 | - | 否 |
+
+### FilterGroupOption 属性
+
+| 属性名    | 说明   | 类型   | 必传   | 默认值  | 是否可以全局配置 |
+| ---- | ---- | ------ |  ------- |  ------- | ------- |
+| element | 组件名（如果是插槽则传入 'slot'） | string |  是 |  - | 否 |
+| modelKey | 组件双向绑定的key值 | string |  否 |  - | 否 |
+| hidden | 是否隐藏该组件 | boolean |  否 |  - | 否 |
+| slotName | 命名插槽的名字（当 element 为 slot 时必传） | string[] |  否 |  - | 否 |
+| events | 绑定组件的事件 | object |  否 |  - | 否 |
+| props | 绑定组件的props（style样式也可在这里添加） | object 或  (data: any) => object |  否 |  - | 否 |
+| renderList | 嵌套组件的渲染数据 | any[] 或 (data: any, index: number) => any[]|  否 |  - | 否 |
+| alias | 别名（在时间组件时候可用） | object |  否 |  - | 否 |
+| children | 绑定的组件内部含有子组件时可配置 | FilterGroupConfig |  否 |  - | 否 |
