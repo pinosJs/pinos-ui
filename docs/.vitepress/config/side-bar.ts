@@ -6,6 +6,14 @@ function sidebarGuides() {
         {
           text: '介绍',
           link: '/guides/setup'
+        },
+        {
+          text: '快速上手',
+          link: '/guides/start'
+        },
+        {
+          text: '全局配置',
+          link: '/guides/global'
         }
       ]
     }
@@ -20,8 +28,17 @@ const components = [
   {
     text: 'table',
     link: '/components/table'
+  },
+  {
+    text: 'config-provider',
+    link: '/components/config-provider'
   }
-].sort()
+].sort((a, b) => {
+  if (a.text > b.text)
+    return 1
+  else
+    return -1
+})
 
 export const defaultComponentLink = (components[0] as ({
   text: string

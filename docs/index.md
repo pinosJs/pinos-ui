@@ -6,8 +6,8 @@ titleTemplate: pinos-ui
 
 hero:
   name: pinos-ui
-  text: vue3的组件库
-  tagline: 提高开发效率
+  text: 基于vue3的组件库
+  tagline: 为了提高开发者效率的UI库
   image:
     src: /logo.png
     alt: pinos-ui
@@ -15,13 +15,13 @@ hero:
   actions:
     - theme: brand
       text: 开始
-      link: /guide/ready
+      link: /guides/setup
 
 features:
   - icon: 📦
-    title: 组件库
-    details: 提供了一些组件，提高开发效率
+    title: 组件
+    details: 将开发中一些繁琐的组件变的简单易用，并提高开发的效率
   - icon: 🚀
-    title: 方法库
-    details: 提供一些常用的方法
+    title: 常用方法
+    details: 提供一些开发中常常使用的一些方法
 ---
