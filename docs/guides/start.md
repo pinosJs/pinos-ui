@@ -50,6 +50,31 @@ export default defineConfig({
   ]
 })
 ```
+对于 vue-cli 项目，在 vue.config.js 中拓展以下内容：
+
+```js
+const { PinosUIResolver } = require('@pinos-ui/plugins')
+const { defineConfig } = require('@vue/cli-service')
+const AutoImport = require('unplugin-auto-import/webpack')
+const Components = require('unplugin-vue-components/webpack')
+
+module.exports = defineConfig({
+  transpileDependencies: true,
+  configureWebpack: (config) => {
+    const plugins = [
+      AutoImport({
+        resolvers: [PinosUIResolver()]
+      }),
+      Components({
+        resolvers: [PinosUIResolver()]
+      })
+    ]
+
+    config.plugins = [...config.plugins, ...plugins]
+  }
+})
+
+```
 
 ### 手动引入
 
@@ -88,4 +113,16 @@ import { PinTable } from 'pinos-ui'
 <template>
   <pin-table />
 </template>
+```
+
+## 全局类型支持
+
+如果全局引入了组件库，在项目的 tsconfig.json 文件配置 compilerOptions.types 选项可以快速获得全局类型支持：
+
+```json
+{
+  "compilerOptions": {
+    "types": ["pinos-ui/types"]
+  }
+}
 ```

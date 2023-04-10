@@ -14,6 +14,10 @@ function sidebarGuides() {
         {
           text: '全局配置',
           link: '/guides/global'
+        },
+        {
+          text: '空间命名',
+          link: '/guides/namespace'
         }
       ]
     }
