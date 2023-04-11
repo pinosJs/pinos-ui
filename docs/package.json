@@ -7,6 +7,7 @@
     "docs:serve": "vitepress serve ."
   },
   "dependencies": {
+    "@pinos-ui/utils": "workspace:0.1.0-alpha.0",
     "element-plus": "^2.2.21",
     "pinos-ui": "workspace:0.1.0-alpha.5"
   },

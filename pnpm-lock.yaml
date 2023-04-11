@@ -57,6 +57,7 @@ importers:
   docs:
     specifiers:
       '@algolia/client-search': 4.14.2
+      '@pinos-ui/utils': workspace:0.1.0-alpha.0
       '@ruabick/md-demo-plugins': ^0.3.1
       '@ruabick/vitepress-demo-block': ^0.3.1
       element-plus: ^2.2.21
@@ -66,6 +67,7 @@ importers:
       vitepress: 1.0.0-alpha.64
       vue: 3.2.40
     dependencies:
+      '@pinos-ui/utils': link:../packages/utils
       element-plus: 2.3.2_vue@3.2.40
       pinos-ui: link:../packages/pinos-ui
     devDependencies:
