@@ -9,14 +9,14 @@ outline: deep
 以 element-plus 为例，该组件将其 table 组件，pagination组件进行了整合, 并扩展了一些slot，如：cellSlot（单元格插槽）、columnSlot（列插槽）、customHeaderSlot（自定义表头插槽），可以让开发者灵活的定义。除此之外，该组件还提供了一个 deleteRow 实例方法，用于删除某一行并更新 table 数据。
 
 ::: tip
-使用该组件时，请确保在项目中已经安装并配置好 element-plus 库，当然如果还有其他库也是和 element-plus 有着类似的问题，也可以用该组件让其以配置的方式去渲染，你只需要配置 componentsConfig 即可。
+使用该组件时，请确保在项目中已经安装并配置好 element-plus 库。
 :::
 
-## 解决痛点
+## 背景
 
 在多数的组件库，如：[naiveui](https://www.naiveui.com/zh-CN/light/components/data-table)、[vexipui](https://www.vexipui.com/zh-CN/components/table)、[antdv](https://next.antdv.com/components/table) 中都有 table 组件，且它们都有一个共同点，都是通过配置的方式去渲染的。但是 [element-plus](https://element-plus.org/zh-CN/component/table.html) 中的 table 组件则是通过 el-table-column 组件去渲染每一列，这也就意味着，我们需要写许多次 el-table-column，这样我感觉代码不够简洁和直观。因此封装了这该组件用于解决这个问题。
 
-## 应用
+## 代码示例
 
 ### 自定义表头
 

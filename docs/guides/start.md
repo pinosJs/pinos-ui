@@ -2,6 +2,8 @@
 outline: deep
 ---
 
+# 快速上手
+
 ## 安装
 
 ```shell
