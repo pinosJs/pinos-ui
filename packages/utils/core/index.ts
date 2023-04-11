@@ -1,4 +1,3 @@
-export * from './date'
 export * from './element'
 export * from './namespace'
 export * from './tools/deep-clone'
