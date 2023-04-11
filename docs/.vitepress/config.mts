@@ -19,7 +19,12 @@ export default defineConfig({
     sidebar: initSideBar(),
     socialLinks: [
       { icon: 'github', link: 'https://github.com/pinosJs/pinos-ui' }
-    ]
+    ],
+    algolia: {
+      appId: '6H363SGK6Q',
+      apiKey: '191819a82e0111365928a6c16a578f93',
+      indexName: 'pinos-ui'
+    }
   },
 
   markdown: {
