@@ -70,6 +70,34 @@ const utilsConfig = [{
       link: '/utils/tools/merge-object'
     }
   ]
+}, {
+  text: 'Validate',
+  items: [
+    {
+      text: 'validateType',
+      link: '/utils/validate/validate-type'
+    },
+    {
+      text: 'validatePhoneNumber',
+      link: '/utils/validate/validate-phone-number'
+    },
+    {
+      text: 'validateIdCard',
+      link: '/utils/validate/validate-id-card'
+    },
+    {
+      text: 'validateNumber',
+      link: '/utils/validate/validate-number'
+    },
+    {
+      text: 'mustBeChinese',
+      link: '/utils/validate/must-be-chinese'
+    },
+    {
+      text: 'existEmoji',
+      link: '/utils/validate/exist-emoji'
+    }
+  ]
 }]
 
 export const defaultComponentLink = (components[0] as ({
