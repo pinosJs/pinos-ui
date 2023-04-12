@@ -1,4 +1,4 @@
-import { transformPxToViewport } from './index'
+import { transformPxToViewport } from '../px-to-viewport'
 
 describe('test export module', () => {
   it('should export module', () => {
