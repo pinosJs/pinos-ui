@@ -7,7 +7,8 @@ import fs from 'fs-extra'
 const dir = resolve(__dirname, '../core')
 const subDirName = [
   'tools',
-  'transform'
+  'transform',
+  'validate'
 ]
 const ignoreDieName: string[] = ['common']
 

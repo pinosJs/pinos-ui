@@ -1,4 +1,4 @@
-import { validateType } from '../validate/index'
+import { validateType } from '../validate/validate-type'
 
 export function isTargetTag(target: unknown, tags: string[]) {
   return tags.some(i => validateType(target, i))

@@ -1,5 +1,5 @@
 /* eslint-disable no-new-wrappers */
-import { validateType } from '../../validate/index'
+import { validateType } from '../../validate/validate-type'
 import { deepClone } from '../deep-clone'
 
 const checkSet = (target: Set<any>, value: any) => {

@@ -1,5 +1,5 @@
 import { isTargetTag, forEach } from '../common/index'
-import { validateType } from '../validate/index'
+import { validateType } from '../validate/validate-type'
 
 const deepTag = ['Map', 'Set', 'Array', 'Object']
 const ctorTag = ['Boolean', 'Number', 'String', 'Date']

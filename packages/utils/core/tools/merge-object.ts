@@ -1,5 +1,5 @@
 import { forEach } from '../common/index'
-import { validateType } from '../validate/index'
+import { validateType } from '../validate/validate-type'
 import { deepClone } from './deep-clone'
 
 function merge<T extends Record<string, any>, U extends Record<string, any>>(source: T, target: U, isNewObj = true) {

@@ -78,8 +78,8 @@ const utilsConfig = [{
       link: '/utils/validate/validate-type'
     },
     {
-      text: 'validatePhoneNumber',
-      link: '/utils/validate/validate-phone-number'
+      text: 'validatePhone',
+      link: '/utils/validate/validate-phone'
     },
     {
       text: 'validateIdCard',

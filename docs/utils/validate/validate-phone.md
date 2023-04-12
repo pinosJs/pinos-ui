@@ -2,14 +2,14 @@
 outline: deep
 ---
 
-# validatePhoneNumber
+# validatePhone
 
 校验电话号码
 
 ## 使用
 
 ```js
-import { validatePhoneNumber } from '@pinos-ui/utils'
+import { validatePhone } from '@pinos-ui/utils'
 ```
 
 ## 代码示例
@@ -26,5 +26,5 @@ import { validatePhoneNumber } from '@pinos-ui/utils'
 ## 类型声明
 
 ```js
-export declare function validatePhoneNumber(value: string): boolean;
+export declare function validatePhone(value: string): boolean;
 ```

@@ -1,22 +1,3 @@
-export function validateType(target: unknown, type: string) {
-  if (type === 'NaN')
-    return Number.isNaN(target)
-  else
-    return Object.prototype.toString.call(target) === `[object ${type}]`
-}
-
-export function validatePhoneNumber(value: string) {
-  return /^[1]([3-9])[0-9]{9}$/.test(value)
-}
-
-export function validateIdCard(value: string, onlyValidateLast = false) {
-  const reg = !onlyValidateLast
-    ? /^[1-9]\d{5}(?:18|19|20)\d{2}(?:0[1-9]|10|11|12)(?:0[1-9]|[1-2]\d|30|31)\d{3}[\dXx]$/
-    : /\d{5}[\dXx]$/
-
-  return reg.test(value)
-}
-
 /**
  * 校验数字
  * @export
@@ -75,23 +56,5 @@ export function validateNumber(value: number | string, cfg?: {
       reg = /^(-?)\d+(\.\d+)?$/
   }
 
-  return reg.test(value)
-}
-
-export function mustBeChinese(value: string) {
-  value = value.trim()
-  if (!value)
-    return false
-
-  const reg = /^[\u4E00-\u9FA5]{0,}$/g
-  return reg.test(value)
-}
-
-export function existEmoji(value: string) {
-  value = value.trim()
-  if (!value)
-    return false
-
-  const reg = /(\uD83C[\uDF00-\uDFFF])|(\uD83D[\uDC00-\uDE4F\uDE80-\uDEFF])|[\u2600-\u2B55]/g
   return reg.test(value)
 }
