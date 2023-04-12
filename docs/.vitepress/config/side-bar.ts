@@ -27,6 +27,14 @@ const utilsConfig = [{
     }
   ]
 }, {
+  text: 'Transform',
+  items: [
+    {
+      text: 'transformPxToViewport',
+      link: '/utils/transform/px-to-viewport'
+    }
+  ]
+}, {
   text: 'Element',
   items: [
     {
@@ -98,6 +106,22 @@ const utilsConfig = [{
       link: '/utils/validate/exist-emoji'
     }
   ]
+}, {
+  text: 'Namespace',
+  items: [
+    {
+      text: 'toCamelCase',
+      link: '/utils/namespace/to-camel-case'
+    },
+    {
+      text: 'toCapitalCase',
+      link: '/utils/namespace/to-capital-case'
+    },
+    {
+      text: 'toKebabCase',
+      link: '/utils/namespace/to-kebab-case'
+    }
+  ]
 }]
 
 export const defaultComponentLink = (components[0] as ({
@@ -147,7 +171,16 @@ function sidebarComponents() {
 }
 
 function sidebarUtils() {
-  return utilsConfig.map((item) => {
+  return utilsConfig.sort((a, b) => {
+    if (b.text === '指南') {
+      return 1
+    } else {
+      if (a.text > b.text)
+        return 1
+      else
+        return -1
+    }
+  }).map((item) => {
     const { items, text } = item
     return {
       text,
