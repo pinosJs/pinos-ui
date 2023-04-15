@@ -17,15 +17,14 @@ export default defineComponent({
     const filterGroupOption = computed<FilterGroupOption[]>(() => {
       return [
         {
-          element: 'el-date-picker',
+          element: 'n-date-picker',
           modelKey: 'value',
+          bindingArg: 'formatted-value',
           props: {
-            'type': 'daterange',
-            'range-separator': '至',
-            'start-placeholder': '请选择开始时间',
-            'end-placeholder': '请选择结束时间',
-            'format': 'YYYY/MM/DD',
-            'value-format': 'YYYY-MM-DD'
+            'type': 'date',
+            'placeholder': '请选择',
+            'clearable': true,
+            'value-format': 'yyyy-MM-dd'
           }
         }
       ]

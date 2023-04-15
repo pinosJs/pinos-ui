@@ -16,28 +16,28 @@ outline: deep
 
 ### select
 
-- select（基础）
+#### select（基础）
 
 <demo src="./demos/filter-group/element-plus/select/select.vue" ></demo>
 
-- select（基础-绑定change事件）
+#### select（基础-绑定change事件）
 
 <demo src="./demos/filter-group/element-plus/select/event-select.vue" ></demo>
 
-- select（多选）
+#### select（多选）
 
 <demo src="./demos/filter-group/element-plus/select/multiple-select.vue" ></demo>
 
 
-- select（自定义）
+#### select（自定义）
 
 <demo src="./demos/filter-group/element-plus/select/custom-select.vue" ></demo>
 
-- select（分组）
+#### select（分组）
 
 <demo src="./demos/filter-group/element-plus/select/group-select.vue" ></demo>
 
-- select（远程搜索）
+#### select（远程搜索）
 
 <demo src="./demos/filter-group/element-plus/select/remote-select.vue" ></demo>
 
@@ -47,35 +47,35 @@ outline: deep
 radio 与 checkbox 配置类似
 :::
 
-- checkbox（基础）
+#### checkbox（基础）
 
 <demo src="./demos/filter-group/element-plus/checkbox/checkbox.vue" ></demo>
 
-- checkbox（基础-事件绑定）
+#### checkbox（基础-事件绑定）
 
 <demo src="./demos/filter-group/element-plus/checkbox/event-checkbox.vue" ></demo>
 
-- checkbox（自定义）
+#### checkbox（自定义）
 
 <demo src="./demos/filter-group/element-plus/checkbox/custom-checkbox.vue" ></demo>
 
 ### auto-complete
 
-- auto-complete（基础）
+#### auto-complete（基础）
 
 <demo src="./demos/filter-group/element-plus/auto-complete/auto-complete.vue" ></demo>
 
-- auto-complete（自定义）
+#### auto-complete（自定义）
 
 <demo src="./demos/filter-group/element-plus/auto-complete/custom-auto-complete.vue" ></demo>
 
 ### cascader 级联选择器
 
-- cascader（基础）
+#### cascader（基础）
 
 <demo src="./demos/filter-group/element-plus/cascader/cascader.vue" ></demo>
 
-- cascader（多选）
+#### cascader（多选）
 
 <demo src="./demos/filter-group/element-plus/cascader/multiple-cascader.vue" ></demo>
 
@@ -85,53 +85,138 @@ radio 与 checkbox 配置类似
 el-time-picker 配置类似
 :::
 
-- date-picker(基础)
+#### date-picker(基础)
 
 <demo src="./demos/filter-group/element-plus/date-picker/basic.vue" ></demo>
 
-- date-picker(时间范围)
+#### date-picker(时间范围)
 
 <demo src="./demos/filter-group/element-plus/date-picker/range.vue" ></demo>
 
-- date-picker(时间范围-设置别名)
+#### date-picker(时间范围-设置别名)
 
 <demo src="./demos/filter-group/element-plus/date-picker/alias-range.vue" ></demo>
 
-- date-picker(自定义)
+#### date-picker(自定义)
 
 <demo src="./demos/filter-group/element-plus/date-picker/custom.vue" ></demo>
 
 ### input
 
-- input(基础)
+#### input(基础)
 
 <demo src="./demos/filter-group/element-plus/input/basic.vue" ></demo>
 
 ### select-v2
 
-- select-v2(基础)
+#### select-v2(基础)
 
 <demo src="./demos/filter-group/element-plus/select-v2/basic.vue" ></demo>
 
-- select-v2(多选)
+#### select-v2(多选)
 
 <demo src="./demos/filter-group/element-plus/select-v2/multiple-select.vue" ></demo>
 
-- select-v2(分组)
+#### select-v2(分组)
 
 <demo src="./demos/filter-group/element-plus/select-v2/group.vue" ></demo>
 
-- select-v2(自定义)
+#### select-v2(自定义)
 
 <demo src="./demos/filter-group/element-plus/select-v2/custom.vue" ></demo>
 
-### 自定义插槽
 
-<demo src="./demos/filter-group/slot/index.vue" ></demo>
+## 代码示例 (UI库：naive-ui)
 
-### 数据联动
+### select
+
+:::tip
+树型选择 Tree Select 配置类似
+:::
+
+#### select（基础）
+
+<demo src="./demos/filter-group/naive-ui/select/select.vue" ></demo>
+
+#### select（基础-绑定blur事件）
+
+<demo src="./demos/filter-group/naive-ui/select/event-select.vue" ></demo>
+
+#### select（多选）
+
+<demo src="./demos/filter-group/naive-ui/select/multiple-select.vue" ></demo>
+
+
+#### select（自定义）
+
+<demo src="./demos/filter-group/naive-ui/select/custom-select.vue" ></demo>
+
+#### select（分组）
+
+<demo src="./demos/filter-group/naive-ui/select/group-select.vue" ></demo>
+
+### checkbox
+
+::: tip
+radio 与 checkbox 配置类似
+:::
+
+#### checkbox（基础）
+
+<demo src="./demos/filter-group/naive-ui/checkbox/checkbox.vue" ></demo>
+
+### auto-complete
+
+#### auto-complete（基础）
+
+<demo src="./demos/filter-group/naive-ui/auto-complete/auto-complete.vue" ></demo>
+
+#### auto-complete（自定义）
+
+<demo src="./demos/filter-group/naive-ui/auto-complete/custom-auto-complete.vue" ></demo>
+
+### cascader 级联选择器
+
+#### cascader（基础）
+
+<demo src="./demos/filter-group/naive-ui/cascader/cascader.vue" ></demo>
+
+#### cascader（多选）
+
+<demo src="./demos/filter-group/naive-ui/cascader/multiple-cascader.vue" ></demo>
+
+### date-picker
+
+::: tip
+time-picker 配置类似
+:::
+
+#### date-picker(基础)
+
+<demo src="./demos/filter-group/naive-ui/date-picker/basic.vue" ></demo>
+
+#### date-picker(时间范围)
+
+<demo src="./demos/filter-group/naive-ui/date-picker/range.vue" ></demo>
+
+#### date-picker(时间范围-设置别名)
+
+<demo src="./demos/filter-group/naive-ui/date-picker/alias-range.vue" ></demo>
+
+### input
+
+#### input(基础)
+
+<demo src="./demos/filter-group/naive-ui/input/basic.vue" ></demo>
+
+
+## 数据联动
 
 <demo src="./demos/filter-group/associate/index.vue" ></demo>
+
+## 自定义插槽
+
+<demo src="./demos/filter-group/slot/index.vue" ></demo>
 
 ## filterGroup 属性
 
@@ -145,6 +230,7 @@ el-time-picker 配置类似
 | 属性名    | 说明   | 类型   | 必传   | 默认值  | 是否可以全局配置 |
 | ---- | ---- | ------ |  ------- |  ------- | ------- |
 | element | 组件名（如果是插槽则传入 'slot'） | string |  是 |  - | 否 |
+| bindingArg | v-model的arg(指令的参数) | string |  否 |  modelValue | 否 |
 | modelKey | 组件双向绑定的key值 | string |  否 |  - | 否 |
 | hidden | 是否隐藏该组件 | boolean |  否 |  - | 否 |
 | slotName | 命名插槽的名字（当 element 为 slot 时必传） | string[] |  否 |  - | 否 |

@@ -14,25 +14,36 @@ import type { FilterGroupOption } from 'pinos-ui'
 export default defineComponent({
   name: 'Fg',
   setup() {
+    const options = computed(() => {
+      return ['@gmail.com', '@163.com', '@qq.com'].map((suffix) => {
+        const prefix = query.value.value.split('@')[0]
+        return {
+          label: prefix + suffix,
+          value: prefix + suffix
+        }
+      })
+    })
     const filterGroupOption = computed<FilterGroupOption[]>(() => {
       return [
         {
-          element: 'el-date-picker',
+          element: 'n-auto-complete',
           modelKey: 'value',
+          bindingArg: 'value',
           props: {
-            'type': 'daterange',
-            'range-separator': '至',
-            'start-placeholder': '请选择开始时间',
-            'end-placeholder': '请选择结束时间',
-            'format': 'YYYY/MM/DD',
-            'value-format': 'YYYY-MM-DD'
+            'input-props': {
+              autocomplete: 'disabled'
+            },
+            'options': options.value,
+            'clearable': true,
+            'placeholder': '邮箱'
           }
+
         }
       ]
     })
 
     const query = ref<Record<string, any>>({
-      value: null
+      value: ''
     })
 
     return {

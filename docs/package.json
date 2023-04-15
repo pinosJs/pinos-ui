@@ -8,7 +8,9 @@
   },
   "dependencies": {
     "@pinos-ui/utils": "workspace:0.1.0-alpha.0",
+    "@vicons/ionicons4": "^0.12.0",
     "element-plus": "^2.2.21",
+    "naive-ui": "^2.34.3",
     "pinos-ui": "workspace:0.1.0-alpha.5"
   },
   "devDependencies": {

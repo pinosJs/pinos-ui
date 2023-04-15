@@ -3,6 +3,7 @@ import type { ConfigurableProps } from '~types/utils'
 
 export interface FilterGroupOption {
   element: string
+  bindingArg?: string
   modelKey?: string
   hidden?: boolean
   slotName?: string[]

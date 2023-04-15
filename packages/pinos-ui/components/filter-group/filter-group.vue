@@ -106,9 +106,9 @@ const updateItemModelValue = (value: Record<string, any>) => {
     if (alias) {
       const res: any[] = []
       for (const key of Object.keys(alias))
-        res.push(modelValue.value[key])
+        modelValue.value[key] && res.push(modelValue.value[key])
 
-      itemModelValue.value[modelKey] = res
+      itemModelValue.value[modelKey] = res.length ? res : null
     } else {
       itemModelValue.value[modelKey] = val
     }

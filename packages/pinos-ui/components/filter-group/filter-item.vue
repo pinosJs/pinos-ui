@@ -3,14 +3,14 @@
     <component
       :is="props.option.element"
       v-if="getRenderType(props.option) === 'normal'"
-      v-model="props.modelValue[props.option.modelKey]"
+      v-model:[getBindingArg(props.option)]="props.modelValue[props.option.modelKey]"
       v-bind="getProps(props.option)"
       v-on="getEvents(props.option)"
     />
     <component
       :is="props.option.element"
       v-if="getRenderType(props.option) === 'nested' && children && children.element !== 'slot'"
-      v-model="props.modelValue[props.option.modelKey]"
+      v-model:[getBindingArg(props.option)]="props.modelValue[props.option.modelKey]"
       v-bind="getProps(props.option)"
       v-on="getEvents(props.option)"
     >
@@ -43,7 +43,7 @@
     <component
       :is="props.option.element"
       v-if="getRenderType(props.option) === 'nested' && children && children.element === 'slot' && children.slotName"
-      v-model="props.modelValue[props.option.modelKey]"
+      v-model:[getBindingArg(props.option)]="props.modelValue[props.option.modelKey]"
       v-bind="getProps(props.option)"
       v-on="getEvents(props.option)"
     >
@@ -140,6 +140,11 @@ const children = computed(() => {
   else
     return null
 })
+
+const getBindingArg = (option: FilterGroupOption) => {
+  const { bindingArg } = option || {}
+  return bindingArg || 'modelValue'
+}
 
 const customSlot = (slotName: string) => {
   if (slotName && rootSlots)
