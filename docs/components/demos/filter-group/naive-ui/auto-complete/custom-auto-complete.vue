@@ -8,7 +8,6 @@
 </template>
 
 <script lang="ts">
-import { NTag } from 'naive-ui'
 import { ref, defineComponent, computed, h } from 'vue'
 import type { FilterGroupOption } from 'pinos-ui'
 
@@ -27,7 +26,7 @@ export default defineComponent({
     const renderLabel = (option: any) => [
       option.label as string,
       ' ',
-      h(NTag, { size: 'small', type: 'info' }, { default: () => 'Email' })
+      h('div', null, { default: () => 'Email' })
     ]
     const filterGroupOption = computed<FilterGroupOption[]>(() => {
       return [
