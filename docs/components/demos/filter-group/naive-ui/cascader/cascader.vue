@@ -86,7 +86,7 @@ export default defineComponent({
     })
 
     const query = ref<Record<string, any>>({
-      value: ''
+      value: null
     })
 
     return {
