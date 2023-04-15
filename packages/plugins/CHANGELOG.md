@@ -1,3 +1,7 @@
+# [0.1.0](https://github.com/pinosJs/pinos-ui/compare/@pinos-ui/plugins@0.1.0-alpha.9...@pinos-ui/plugins@0.1.0) (2023-04-15)
+
+
+
 # [0.1.0-alpha.9](https://github.com/pinosJs/pinos-ui/compare/@pinos-ui/plugins@0.1.0-alpha.8...@pinos-ui/plugins@0.1.0-alpha.9) (2023-04-02)
 
 
