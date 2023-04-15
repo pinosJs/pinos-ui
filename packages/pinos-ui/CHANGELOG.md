@@ -1,3 +1,20 @@
+# [0.1.0](https://github.com/pinosJs/pinos-ui/compare/v0.1.0-alpha.5...v0.1.0) (2023-04-15)
+
+
+### Bug Fixes
+
+* **pinos-ui:** table component dynamic data is not updated in time ([5766b75](https://github.com/pinosJs/pinos-ui/commit/5766b75e708e73f92b14db93f94fc2e2fa4775f1))
+* **pinos-ui:** vEllipsis does not take effect when no binding is configured ([9047b96](https://github.com/pinosJs/pinos-ui/commit/9047b96712cbe0c69deba4238e1eae8b401e17f1))
+
+
+### Features
+
+* **pinos-ui:** add filter-group component ([299abf6](https://github.com/pinosJs/pinos-ui/commit/299abf6b352a3881035ac1d0f3db47b63d41a6a9))
+* **pinos-ui:** add table component ([9b95880](https://github.com/pinosJs/pinos-ui/commit/9b958803a36049ca693682531e139ba79ba44bc9))
+* **pinos-ui:** vEllipsis support dynamic configuration ([a5cab74](https://github.com/pinosJs/pinos-ui/commit/a5cab748e974c9c7b17449d12f16930460f69c43))
+
+
+
 # [0.1.0-alpha.5](https://github.com/pinosJs/pinos-ui/compare/v0.1.0-alpha.4...v0.1.0-alpha.5) (2023-04-02)
 
 
