@@ -88,7 +88,7 @@ async function main(): Promise<void> {
   if (stdout) {
     step('\nCommitting changes...')
     await runIfNotDry('git', ['add', '-A'])
-    await runIfNotDry('git', ['commit', '-m', `release: ${tag}`])
+    await runIfNotDry('git', ['commit', '-m', `chore: release ${tag}`])
     await runIfNotDry('git', ['tag', tag])
   } else {
     console.log('No changes to commit.')
