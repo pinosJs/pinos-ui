@@ -100,7 +100,9 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: '@use "@/styles/reset.scss" as *;' // @/styles/reset.scss 的 @ 是根据你的 tsconfig.json 的 paths 而定的
+        additionalData: (code: string) => {
+          return code.replace('@use \"./design\" as *;', '@use \"@/styles/reset.scss\" as *;') // @/styles/reset.scss 的 @ 是根据你的 tsconfig.json 的 paths 而定的
+        }
       }
     }
   }
@@ -118,7 +120,9 @@ module.exports = defineConfig({
   css: {
     loaderOptions: {
       scss: {
-        additionalData: '@use "@/styles/reset.scss" as *;' // @/styles/reset.scss 的 @ 是根据你的 tsconfig.json 的 paths 而定的
+        additionalData: (code: string) => {
+          return code.replace('@use \"./design\" as *;', '@use \"@/styles/reset.scss\" as *;') // @/styles/reset.scss 的 @ 是根据你的 tsconfig.json 的 paths 而定的
+        }
       }
     }
   }
