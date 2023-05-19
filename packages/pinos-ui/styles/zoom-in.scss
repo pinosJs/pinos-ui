@@ -1,0 +1,28 @@
+@use "./design" as *;
+
+.#{$namespace}-zoom-in {
+  display: block;
+  position: relative;
+
+  &-canvas {
+    display: block;
+  }
+
+  &-preview-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: transparent;
+    border-radius: 50%;
+    z-index: 999;
+    pointer-events: none;
+    cursor: none;
+    border: 2px solid #000;
+    overflow: hidden;
+  }
+
+  &-preview-canvas {
+    display: block;
+    background: #fff;
+  }
+}
