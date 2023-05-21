@@ -18,7 +18,8 @@
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
-    "@pinos/eslint-config": "^1.1.0",
+    "@pinos/eslint-config": "^1.2.2",
+    "@pinos/stylelint-config": "^1.1.1",
     "@types/fs-extra": "^11.0.1",
     "@types/minimist": "^1.2.2",
     "@types/node": "^18.11.18",
@@ -38,8 +39,11 @@
     "lint-staged": "^13.0.3",
     "minimist": "^1.2.8",
     "picocolors": "^1.0.0",
+    "postcss": "^8.4.19",
+    "postcss-html": "^1.5.0",
     "prompts": "^2.4.2",
     "semver": "^7.3.8",
+    "stylelint": "^14.15.0",
     "typescript": "^4.8.3"
   },
   "config": {

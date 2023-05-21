@@ -21,6 +21,14 @@
   "[json]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
+  "[less]": {
+    "editor.codeActionsOnSave": [
+      "source.formatDocument",
+      // eslint-disable-next-line jsonc/sort-array-values
+      "source.fixAll.stylelint"
+    ],
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[scss]": {
     "editor.codeActionsOnSave": [
       "source.formatDocument",
@@ -35,11 +43,12 @@
   "cSpell.words": [
     "consola",
     "esbuild",
-    "esno",
     "execa",
     "iife",
     "pinos",
-    "tailwindcss"
+    "stylelint",
+    "tailwindcss",
+    "wxml"
   ],
   "css.validate": false,
   // 保存修复
@@ -58,12 +67,14 @@
     "jsonc",
     "typescript",
     "typescriptreact",
+    "wxml",
     "yaml",
     "yml"
   ],
   "files.associations": {
     "*.css": "postcss",
-    "*.json": "jsonc"
+    "*.json": "jsonc",
+    "*.wxml": "html"
   },
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
@@ -73,6 +84,7 @@
   "stylelint.enable": true,
   "stylelint.validate": [
     "css",
+    "less",
     "postcss",
     "scss",
     "vue"
